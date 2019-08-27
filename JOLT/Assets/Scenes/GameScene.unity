@@ -252,7 +252,6 @@ MonoBehaviour:
   paddle: {fileID: 1019283144}
   rotateClockwiseKey: 97
   rotateAntiClockwiseKey: 100
-  playerCore: {fileID: 1418268775}
 --- !u!114 &1019283144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +490,6 @@ MonoBehaviour:
   paddle: {fileID: 1045946186}
   rotateClockwiseKey: 97
   rotateAntiClockwiseKey: 100
-  playerCore: {fileID: 1418268775}
 --- !u!114 &1045946186
 MonoBehaviour:
   m_ObjectHideFlags: 0
