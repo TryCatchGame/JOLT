@@ -20,18 +20,64 @@ namespace GameEntity.Player.Controls {
 
         private bool isEditor;
 
+        private float screenCenterPosiitonX;
+
         private void Awake() {
             isEditor = Application.isEditor;
+
+            if (!isEditor) {
+                screenCenterPosiitonX = Screen.width / 2f;
+            }
         }
 
         private void Update() {
+            UpdatePaddleRotation();
+        }
+
+        private void UpdatePaddleRotation() {
             if (isEditor) {
+                RotatePaddleByKeyPress();
+            } else {
+                RotatePaddleByScreenPress();
+            }
+
+            #region Local_Function
+
+            void RotatePaddleByScreenPress() {
+                if (Input.touchCount >= 1) {
+                    RotatePaddleByTouchPosition();
+                } else {
+                    StopRotation();
+                }
+            }
+
+            void RotatePaddleByTouchPosition() {
+                Vector2 screenPressPosition = Input.GetTouch(0).position;
+
+                if (screenCenterPosiitonX < screenPressPosition.x) {
+                    RotateClockwise();
+                } else if (screenCenterPosiitonX > screenPressPosition.x) {
+                    RotateAntiClockwise();
+                }
+            }
+
+            void RotatePaddleByKeyPress() {
                 if (Input.GetKey(rotateClockwiseKey)) {
                     RotateClockwise();
                 } else if (Input.GetKey(rotateAntiClockwiseKey)) {
                     RotateAntiClockwise();
+                } else {
+                    StopRotation();
                 }
             }
+
+            #endregion
+        }
+
+        #region Utils
+
+        public void StopRotation() {
+            paddle.StopPaddleRotation();
         }
 
         public void RotateClockwise() {
@@ -41,5 +87,7 @@ namespace GameEntity.Player.Controls {
         public void RotateAntiClockwise() {
             paddle.RotatePaddleAntiClockwise();
         }
+
+        #endregion
     }
 }
