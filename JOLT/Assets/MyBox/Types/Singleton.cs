@@ -2,8 +2,9 @@
 
 namespace MyBox
 {
-	public class Singleton<T> where T : MonoBehaviour
+	public abstract class Singleton<T>: MonoBehaviour where T : MonoBehaviour
 	{
+        [AutoProperty, SerializeField]
 		private static T _instance;
 
 		public static T Instance
@@ -12,7 +13,7 @@ namespace MyBox
 			{
 				if (_instance == null)
 				{
-					_instance = Object.FindObjectOfType<T>();
+					_instance = FindObjectOfType<T>();
 					if (_instance == null)
 					{
 						Debug.LogError("Singleton Instance caused: " + typeof(T).Name + " not found on scene");
