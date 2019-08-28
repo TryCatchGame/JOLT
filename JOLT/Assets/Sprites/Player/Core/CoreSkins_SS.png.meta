@@ -4,49 +4,49 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4818335002855901192
-    second: CoreSkins_SS_0
+    second: BreezeCore
   - first:
       213: -2263221285294724237
-    second: CoreSkins_SS_1
+    second: ChessCore
   - first:
       213: -4112402234479336541
-    second: CoreSkins_SS_2
+    second: ChillCore
   - first:
       213: 9054449184491775046
-    second: CoreSkins_SS_3
+    second: DefaultCore
   - first:
       213: -187961829575652166
-    second: CoreSkins_SS_4
+    second: FluffyCore
   - first:
       213: -5110580602670709670
-    second: CoreSkins_SS_5
+    second: ForestCore
   - first:
       213: 7347573916729341970
-    second: CoreSkins_SS_6
+    second: GoldCore
   - first:
       213: 177414984855234434
-    second: CoreSkins_SS_7
+    second: MoonCore
   - first:
       213: -1905990214805707433
-    second: CoreSkins_SS_8
+    second: OceanCore
   - first:
       213: -72620553716731325
-    second: CoreSkins_SS_9
+    second: ScifiCore
   - first:
       213: -719501626865785847
-    second: CoreSkins_SS_10
+    second: SilverCore
   - first:
       213: -4676368525258955813
-    second: CoreSkins_SS_11
+    second: SparkleCore
   - first:
       213: 1363721739171381821
-    second: CoreSkins_SS_12
+    second: TigerCore
   - first:
       213: -2156566059521568417
-    second: CoreSkins_SS_13
+    second: WarmCore
   - first:
       213: -2072701516330685296
-    second: CoreSkins_SS_14
+    second: ZebraCore
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -143,7 +143,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CoreSkins_SS_0
+      name: BreezeCore
       rect:
         serializedVersion: 2
         x: 170
@@ -151,7 +151,7 @@ TextureImporter:
         width: 378
         height: 378
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,7 +164,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_1
+      name: ChessCore
       rect:
         serializedVersion: 2
         x: 908
@@ -172,7 +172,7 @@ TextureImporter:
         width: 342
         height: 342
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,7 +185,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_2
+      name: ChillCore
       rect:
         serializedVersion: 2
         x: 1610
@@ -193,7 +193,7 @@ TextureImporter:
         width: 380
         height: 380
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,7 +206,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_3
+      name: DefaultCore
       rect:
         serializedVersion: 2
         x: 2344
@@ -214,7 +214,7 @@ TextureImporter:
         width: 342
         height: 342
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,7 +227,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_4
+      name: FluffyCore
       rect:
         serializedVersion: 2
         x: 3028
@@ -235,7 +235,7 @@ TextureImporter:
         width: 424
         height: 424
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,7 +248,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_5
+      name: ForestCore
       rect:
         serializedVersion: 2
         x: 156
@@ -256,7 +256,7 @@ TextureImporter:
         width: 408
         height: 408
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,7 +269,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_6
+      name: GoldCore
       rect:
         serializedVersion: 2
         x: 874
@@ -277,7 +277,7 @@ TextureImporter:
         width: 412
         height: 412
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,7 +290,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_7
+      name: MoonCore
       rect:
         serializedVersion: 2
         x: 1588
@@ -298,7 +298,7 @@ TextureImporter:
         width: 424
         height: 424
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -311,7 +311,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_8
+      name: OceanCore
       rect:
         serializedVersion: 2
         x: 2308
@@ -319,7 +319,7 @@ TextureImporter:
         width: 424
         height: 424
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,7 +332,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_9
+      name: ScifiCore
       rect:
         serializedVersion: 2
         x: 3034
@@ -340,7 +340,7 @@ TextureImporter:
         width: 412
         height: 412
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -353,7 +353,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_10
+      name: SilverCore
       rect:
         serializedVersion: 2
         x: 154
@@ -361,7 +361,7 @@ TextureImporter:
         width: 412
         height: 412
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -374,7 +374,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_11
+      name: SparkleCore
       rect:
         serializedVersion: 2
         x: 876
@@ -382,7 +382,7 @@ TextureImporter:
         width: 408
         height: 408
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -395,7 +395,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_12
+      name: TigerCore
       rect:
         serializedVersion: 2
         x: 1608
@@ -403,7 +403,7 @@ TextureImporter:
         width: 384
         height: 384
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -416,7 +416,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_13
+      name: WarmCore
       rect:
         serializedVersion: 2
         x: 2314
@@ -424,7 +424,7 @@ TextureImporter:
         width: 412
         height: 412
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -437,7 +437,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoreSkins_SS_14
+      name: ZebraCore
       rect:
         serializedVersion: 2
         x: 3068
@@ -445,7 +445,7 @@ TextureImporter:
         width: 342
         height: 342
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

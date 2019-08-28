@@ -4,16 +4,16 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7219719939280056516
-    second: Particles_SS_0
+    second: EnemyDeathParticles
   - first:
       213: 7762896058137529426
-    second: Particles_SS_1
+    second: PowerUpDestroyedParticles
   - first:
       213: 4031460618174472904
-    second: Particles_SS_2
+    second: PowerUpSparkleParticles
   - first:
       213: -4057922036418395906
-    second: Particles_SS_3
+    second: TimeSlowEffectParticles
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Particles_SS_0
+      name: EnemyDeathParticles
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +118,7 @@ TextureImporter:
         width: 448
         height: 448
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particles_SS_1
+      name: PowerUpDestroyedParticles
       rect:
         serializedVersion: 2
         x: 458
@@ -139,7 +139,7 @@ TextureImporter:
         width: 343
         height: 297
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particles_SS_2
+      name: PowerUpSparkleParticles
       rect:
         serializedVersion: 2
         x: 0
@@ -160,7 +160,7 @@ TextureImporter:
         width: 541
         height: 541
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particles_SS_3
+      name: TimeSlowEffectParticles
       rect:
         serializedVersion: 2
         x: 551
@@ -181,7 +181,7 @@ TextureImporter:
         width: 344
         height: 384
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

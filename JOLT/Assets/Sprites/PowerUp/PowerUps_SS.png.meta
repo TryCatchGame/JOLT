@@ -4,28 +4,28 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -5265578627216019793
-    second: PowerUps_SS_0
+    second: TimeSlowPowerUp_00
   - first:
       213: 5368483640882528631
     second: PowerUps_SS_1
   - first:
       213: -8942911569190722111
-    second: PowerUps_SS_2
+    second: Gem_01
   - first:
       213: 4408208408198883641
     second: PowerUps_SS_3
   - first:
       213: 4258690113634751975
-    second: PowerUps_SS_4
+    second: ShieldPowerUp_00
   - first:
       213: 8661849391051972328
-    second: PowerUps_SS_5
+    second: TimeSlowPowerUp_01
   - first:
       213: -4419370006237515454
-    second: PowerUps_SS_6
+    second: ShieldPowerUp_01
   - first:
       213: -563115975170301998
-    second: PowerUps_SS_7
+    second: Gem_00
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PowerUps_SS_0
+      name: TimeSlowPowerUp_00
       rect:
         serializedVersion: 2
         x: 0
@@ -130,7 +130,7 @@ TextureImporter:
         width: 59
         height: 113
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,7 +151,7 @@ TextureImporter:
         width: 59
         height: 113
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,7 +164,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PowerUps_SS_2
+      name: Gem_01
       rect:
         serializedVersion: 2
         x: 128
@@ -172,7 +172,7 @@ TextureImporter:
         width: 59
         height: 113
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,7 +193,7 @@ TextureImporter:
         width: 59
         height: 113
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,7 +206,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PowerUps_SS_4
+      name: ShieldPowerUp_00
       rect:
         serializedVersion: 2
         x: 0
@@ -214,7 +214,7 @@ TextureImporter:
         width: 60
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,7 +227,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PowerUps_SS_5
+      name: TimeSlowPowerUp_01
       rect:
         serializedVersion: 2
         x: 65
@@ -235,7 +235,7 @@ TextureImporter:
         width: 60
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,7 +248,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PowerUps_SS_6
+      name: ShieldPowerUp_01
       rect:
         serializedVersion: 2
         x: 130
@@ -256,7 +256,7 @@ TextureImporter:
         width: 60
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,7 +269,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PowerUps_SS_7
+      name: Gem_00
       rect:
         serializedVersion: 2
         x: 195
@@ -277,7 +277,7 @@ TextureImporter:
         width: 60
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -4,43 +4,43 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3613232768879366243
-    second: MainMenuUI_SS_0
+    second: DropDownButtonMenuInterface
   - first:
       213: -2371115893412942249
-    second: MainMenuUI_SS_1
+    second: SoundOnInterface
   - first:
       213: 7468894196882536099
-    second: MainMenuUI_SS_2
+    second: SoundOffInterface
   - first:
       213: 8492500435888999615
-    second: MainMenuUI_SS_3
+    second: RemoveAdsInterface
   - first:
       213: -3583476359103917680
-    second: MainMenuUI_SS_4
+    second: BlueButtonInterface
   - first:
       213: -4218106468987773659
     second: MainMenuUI_SS_5
   - first:
       213: 9166340697737185411
-    second: MainMenuUI_SS_6
+    second: TwitterIconInterface
   - first:
       213: -6266646122384206470
-    second: MainMenuUI_SS_7
+    second: StoreButtonInterface
   - first:
       213: 4737112633524234723
-    second: MainMenuUI_SS_12
+    second: InstructionIcon_0Interface
   - first:
       213: 1080405396371916259
-    second: MainMenuUI_SS_13
+    second: InstructionIcon_1Interface
   - first:
       213: 3388981359759666647
-    second: MainMenuUI_SS_14
+    second: InstructionIcon_2Interface
   - first:
       213: 5537414933591200641
-    second: MainMenuUI_SS_15
+    second: SettingButonInterface
   - first:
       213: 1935353229105441036
-    second: MainMenuUI_SS_8
+    second: TitleInterface
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -137,7 +137,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainMenuUI_SS_0
+      name: DropDownButtonMenuInterface
       rect:
         serializedVersion: 2
         x: 0
@@ -145,7 +145,7 @@ TextureImporter:
         width: 79
         height: 426
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -158,7 +158,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_1
+      name: SoundOnInterface
       rect:
         serializedVersion: 2
         x: 89
@@ -166,7 +166,7 @@ TextureImporter:
         width: 186
         height: 186
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,7 +179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_2
+      name: SoundOffInterface
       rect:
         serializedVersion: 2
         x: 285
@@ -187,7 +187,7 @@ TextureImporter:
         width: 186
         height: 186
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -200,7 +200,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_3
+      name: RemoveAdsInterface
       rect:
         serializedVersion: 2
         x: 481
@@ -208,7 +208,7 @@ TextureImporter:
         width: 186
         height: 186
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -221,7 +221,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_4
+      name: BlueButtonInterface
       rect:
         serializedVersion: 2
         x: 677
@@ -229,7 +229,7 @@ TextureImporter:
         width: 186
         height: 186
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,7 +250,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -263,7 +263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_6
+      name: TwitterIconInterface
       rect:
         serializedVersion: 2
         x: 266
@@ -271,7 +271,7 @@ TextureImporter:
         width: 256
         height: 210
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -284,7 +284,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_7
+      name: StoreButtonInterface
       rect:
         serializedVersion: 2
         x: 532
@@ -292,7 +292,7 @@ TextureImporter:
         width: 284
         height: 202
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -305,7 +305,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_12
+      name: InstructionIcon_0Interface
       rect:
         serializedVersion: 2
         x: 0
@@ -313,7 +313,7 @@ TextureImporter:
         width: 201
         height: 201
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -326,7 +326,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_13
+      name: InstructionIcon_1Interface
       rect:
         serializedVersion: 2
         x: 231
@@ -334,7 +334,7 @@ TextureImporter:
         width: 256
         height: 220
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -347,7 +347,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_14
+      name: InstructionIcon_2Interface
       rect:
         serializedVersion: 2
         x: 517
@@ -355,7 +355,7 @@ TextureImporter:
         width: 144
         height: 336
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -368,7 +368,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_15
+      name: SettingButonInterface
       rect:
         serializedVersion: 2
         x: 6
@@ -376,7 +376,7 @@ TextureImporter:
         width: 708
         height: 708
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -389,7 +389,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainMenuUI_SS_8
+      name: TitleInterface
       rect:
         serializedVersion: 2
         x: 0
@@ -397,7 +397,7 @@ TextureImporter:
         width: 455
         height: 119
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

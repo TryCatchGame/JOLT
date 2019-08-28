@@ -4,19 +4,19 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3358350211195456826
-    second: StoreUI_SS_0
+    second: ItemFrameInterface
   - first:
       213: 316581161469132864
-    second: StoreUI_SS_2
+    second: BackButtonInterface
   - first:
       213: 1375612195882688271
-    second: StoreUI_SS_4
+    second: BarInterface
   - first:
       213: -566397457039530459
-    second: StoreUI_SS_5
+    second: HideInterface
   - first:
       213: 180692301738897184
-    second: StoreUI_SS_1
+    second: UnlockIconInterface
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StoreUI_SS_0
+      name: ItemFrameInterface
       rect:
         serializedVersion: 2
         x: 0
@@ -121,7 +121,7 @@ TextureImporter:
         width: 155
         height: 218
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,7 +134,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: StoreUI_SS_2
+      name: BackButtonInterface
       rect:
         serializedVersion: 2
         x: 593
@@ -142,7 +142,7 @@ TextureImporter:
         width: 192
         height: 320
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,7 +155,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: StoreUI_SS_4
+      name: BarInterface
       rect:
         serializedVersion: 2
         x: 0
@@ -163,7 +163,7 @@ TextureImporter:
         width: 621
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,7 +176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: StoreUI_SS_5
+      name: HideInterface
       rect:
         serializedVersion: 2
         x: 0
@@ -184,7 +184,7 @@ TextureImporter:
         width: 800
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,15 +197,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: StoreUI_SS_1
+      name: UnlockIconInterface
       rect:
         serializedVersion: 2
         x: 218
-        y: 1807
+        y: 1804
         width: 152
         height: 237
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

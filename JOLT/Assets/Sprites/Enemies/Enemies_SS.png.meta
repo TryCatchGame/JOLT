@@ -4,13 +4,13 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 3730467210649188828
-    second: Enemies_SS_0
+    second: BlobEnemy
   - first:
       213: -7901419920552856199
-    second: Enemies_SS_1
+    second: SplitterEnemy
   - first:
       213: -6047632986606808322
-    second: Enemies_SS_2
+    second: ShrinkerEnemy
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -107,7 +107,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemies_SS_0
+      name: BlobEnemy
       rect:
         serializedVersion: 2
         x: 0
@@ -115,7 +115,7 @@ TextureImporter:
         width: 193
         height: 193
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,7 +128,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemies_SS_1
+      name: SplitterEnemy
       rect:
         serializedVersion: 2
         x: 203
@@ -136,7 +136,7 @@ TextureImporter:
         width: 193
         height: 193
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,7 +149,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemies_SS_2
+      name: ShrinkerEnemy
       rect:
         serializedVersion: 2
         x: 0
@@ -157,7 +157,7 @@ TextureImporter:
         width: 212
         height: 212
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

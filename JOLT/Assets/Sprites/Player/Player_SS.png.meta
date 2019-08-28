@@ -4,10 +4,10 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 4200235039693274450
-    second: Player_SS_0
+    second: PlayerPaddle
   - first:
       213: 1859349500567388860
-    second: Player_SS_1
+    second: PlayerShield
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_SS_0
+      name: PlayerPaddle
       rect:
         serializedVersion: 2
         x: 207
@@ -125,7 +125,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SS_1
+      name: PlayerShield
       rect:
         serializedVersion: 2
         x: 206
