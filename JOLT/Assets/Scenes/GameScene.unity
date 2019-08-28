@@ -135,7 +135,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2279167
 Transform:
@@ -163,18 +163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80730ff53c5d1444d884e8f39834809b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesToSpawn:
+  - {fileID: 1433783798784909894, guid: a6b3564be0cf5744fb791d6c5e1e682f, type: 3}
   enemySpawnInterval:
     minMaxSpawnInterval:
-      MinIsSet: 0
-      MaxIsSet: 0
-      Min: 0
-      Max: 0
-  test:
-    MinIsSet: 0
-    MaxIsSet: 0
-    Min: 0
-    Max: 0
-  enemiesToSpawn: []
+      Min: 2
+      Max: 6
   enemyTargetCore: {fileID: 1418268775}
 --- !u!1 &519420028
 GameObject:
@@ -464,6 +458,7 @@ GameObject:
   - component: {fileID: 1045946187}
   - component: {fileID: 1045946186}
   - component: {fileID: 1045946185}
+  - component: {fileID: 1045946188}
   m_Layer: 10
   m_Name: Paddle
   m_TagString: Player
@@ -643,6 +638,27 @@ PolygonCollider2D:
       - {x: -0.96999997, y: -1.53}
       - {x: -0.96, y: -1.31}
       - {x: -0.93, y: -1.0799999}
+--- !u!50 &1045946188
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045946182}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1418268772
 GameObject:
   m_ObjectHideFlags: 0

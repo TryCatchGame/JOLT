@@ -78,11 +78,17 @@ namespace GameEntity.Enemy {
             if (collision.gameObject.CompareTag(playerTag)) {
                 OnCollisionEvent(CollisionType.PLAYER);
 
-                CreateCollisionEffect();
-                CreateDeathEffect();
+                TriggerCollisionDeath();
             }
 
             #region Local_Function
+
+            void TriggerCollisionDeath() {
+                CreateCollisionEffect();
+                CreateDeathEffect();
+
+                Destroy(gameObject);
+            }
 
             void CreateDeathEffect() {
                 // TODO: Some visual effects on death.
