@@ -10,6 +10,8 @@ namespace GameManager {
 
     public class EnemySpawner : Singleton<EnemySpawner> {
 
+        #region SpawnInterval_STRUCT
+
         [System.Serializable]
         private struct SpawnInterval {
             [SerializeField, MinMaxRange(1f, float.MaxValue), Tooltip("The min and max waiting time before an enemy is generated.")]
@@ -24,6 +26,8 @@ namespace GameManager {
             }
         }
 
+        #endregion
+
         [Separator("Enemy Spawning Properties")]
         [SerializeField, Tooltip("The enemies this spawner can spawn."), MustBeAssigned]
         private Enemy[] enemiesToSpawn;
@@ -34,32 +38,56 @@ namespace GameManager {
         [SerializeField, Tooltip("The core that the enemy will target after it spawns"), MustBeAssigned]
         private Core enemyTargetCore;
 
+        [SerializeField, Tooltip("How much extra distance to add when spawning away from the player"), PositiveValueOnly]
+        private float additionalSpawnDistance;
+
         private Timer spawnTimer;
 
+        private Vector2 screenSize;
+
         private void Awake() {
-            spawnTimer = new Timer(enemySpawnInterval.GenerateWaitingTime(), SpawnEnemyAndResetTimerDuration);
+            spawnTimer = new Timer(enemySpawnInterval.GenerateWaitingTime(), SpawnRandomEnemyAndResetTimerDuration);
+
+            InitalizeScreenSize();
+
+            #region Local_Function
+
+            void InitalizeScreenSize() {
+                Camera cameraRef = Camera.main;
+
+                screenSize = cameraRef.ViewportToWorldPoint(new Vector2(1, 1));
+            }
+
+            #endregion
         }
 
-        // Update is called once per frame
         void Update() {
             spawnTimer.Update(Time.deltaTime);
         }
 
-        #region Local_Function
+        #region Utils
 
-        private void SpawnEnemyAndResetTimerDuration() {
+        /// <summary>
+        /// Called by the timer when the timer's interval is up.
+        /// </summary>
+        private void SpawnRandomEnemyAndResetTimerDuration() {
 
-            SpawnEnemy();
+            SpawnRandomEnemy();
             ResetTimerDuration();
 
             #region Local_Function
 
-            void SpawnEnemy() {
+            void SpawnRandomEnemy() {
                 Enemy newEnemy = Instantiate(GetEnemyToSpawn());
 
-                // TODO: Generate a location to spawn;
+                newEnemy.transform.position = GeneratePositionToSpawn();
 
                 newEnemy.SetPlayerTarget(enemyTargetCore);
+            }
+
+            Vector2 GeneratePositionToSpawn() {
+                Vector2 directionToSpawn = (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f))).normalized;
+                return (directionToSpawn * screenSize) + (additionalSpawnDistance * directionToSpawn);
             }
 
             Enemy GetEnemyToSpawn() {
