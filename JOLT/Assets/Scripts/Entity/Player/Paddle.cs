@@ -4,7 +4,7 @@ using MyBox;
 
 namespace GameEntity.Player {
 
-    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D), typeof(SpriteRenderer))]
     public class Paddle : MonoBehaviour {
 
         private enum PaddleRotationDirection {
@@ -13,6 +13,14 @@ namespace GameEntity.Player {
             CLOCKWISE = 1
         }
 
+        [Separator("Auto Assign")]
+        [SerializeField, AutoProperty]
+        private SpriteRenderer paddleRenderer;
+
+        [SerializeField, AutoProperty]
+        private Collider2D paddleCollider;
+
+        [Separator("Core movements")]
         [SerializeField, Tooltip("The core which this paddle protects"), MustBeAssigned]
         private Core targetCore;
 
@@ -47,6 +55,11 @@ namespace GameEntity.Player {
 
         internal void StopPaddleRotation() {
             currentRotationDirection = PaddleRotationDirection.NONE;
+        }
+
+        internal void EnablePaddle(bool enable) {
+            paddleRenderer.enabled = enable;
+            paddleCollider.enabled = enable;
         }
     }
 }
