@@ -41,6 +41,10 @@ namespace GameEntity.Enemy {
             get; private set;
         }
 
+        protected float Radius {
+            get => borderCollisionChecker.Radius; 
+        }
+
         private void Awake() {
             if (borderCollisionChecker == null) {
                 borderCollisionChecker = GetComponent<BorderCollisionChecker>();
@@ -123,6 +127,10 @@ namespace GameEntity.Enemy {
             if (enableFreeMove) {
                 IsMovingToPlayerTarget = false;
             }
+        }
+
+        protected Vector2 GetDirectionAwayFromPlayer() {
+            return (PlayerTargetPosition - (Vector2)transform.position).normalized * -1f;
         }
 
         #endregion

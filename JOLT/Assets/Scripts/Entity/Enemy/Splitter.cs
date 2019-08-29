@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 using MyBox;
 
 namespace GameEntity.Enemy {
 
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Splitter : Enemy {
         [Separator("Splitter properties")]
         [SerializeField, Tooltip("The enemy prefab to split to"), MustBeAssigned]
@@ -46,14 +45,12 @@ namespace GameEntity.Enemy {
 
             void CreateAndMoveSplittedEnemy(Vector2 directionToMove) {
                 Enemy newSplittedEnemy = Instantiate(enemyPrefabToSplitInto);
-                newSplittedEnemy.transform.position = transform.position;
+
+                Vector3 offset = Radius * directionToMove;
+                newSplittedEnemy.transform.position = transform.position + offset;
 
                 newSplittedEnemy.SetPlayerTarget(PlayerTarget);
                 newSplittedEnemy.SetFreeMoveDirection(directionToMove);
-            }
-
-            Vector2 GetDirectionAwayFromPlayer() {
-                return (PlayerTargetPosition - (Vector2)transform.position).normalized * -1f;
             }
 
             #endregion

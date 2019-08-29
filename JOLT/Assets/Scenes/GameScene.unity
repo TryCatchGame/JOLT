@@ -164,8 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesToSpawn:
-  - {fileID: 288024172821621934, guid: ebde0225761419a499a331c0982dfc9d, type: 3}
   - {fileID: 1433783798784909894, guid: a6b3564be0cf5744fb791d6c5e1e682f, type: 3}
+  - {fileID: 288024172821621934, guid: ebde0225761419a499a331c0982dfc9d, type: 3}
+  - {fileID: 7662016088140230492, guid: ea8e6299f045d6840a07b033f6d44df1, type: 3}
   enemySpawnInterval:
     minMaxSpawnInterval:
       Min: 1.5
