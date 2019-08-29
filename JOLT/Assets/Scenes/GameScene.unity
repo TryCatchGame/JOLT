@@ -172,7 +172,7 @@ MonoBehaviour:
       Min: 1.5
       Max: 4
   enemyTargetCore: {fileID: 1418268775}
-  additionalSpawnDistance: 7.5
+  additionalSpawnDistance: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,8 @@
 
 using MyBox;
 
+using GameEntity.Collectables;
+
 namespace GameEntity.Player {
 
     [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D), typeof(SpriteRenderer))]
@@ -27,6 +29,10 @@ namespace GameEntity.Player {
         [SerializeField, Tooltip("How fast this paddle rotates"), PositiveValueOnly]
         private float paddleRotationSpeed;
 
+        [Separator("Collection of collectables")]
+        [SerializeField, Tooltip("The tag for collectables"), Tag]
+        private string collectableTag;
+
         private PaddleRotationDirection currentRotationDirection;
 
         private void Awake() {
@@ -45,6 +51,29 @@ namespace GameEntity.Player {
             #endregion
         }
 
+        private void OnCollisionEnter2D(Collision2D collision) {
+
+            if (TryGetCollectableFromCollision(out Collectable collidedCollectable)) {
+                collidedCollectable.Collect();
+            }
+
+            #region Local_Function
+
+            bool TryGetCollectableFromCollision(out Collectable collectable) {
+                if (collision.gameObject.CompareTag(collectableTag)) {
+                    collectable = collision.gameObject.GetComponent<Collectable>();
+                } else {
+                    collectable = null;
+                }
+
+                return collectable != null;
+            }
+
+            #endregion
+        }
+
+        #region Utils
+
         internal void RotatePaddleAntiClockwise() {
             currentRotationDirection = PaddleRotationDirection.ANTI_CLOCKWISE;
         }
@@ -61,5 +90,7 @@ namespace GameEntity.Player {
             paddleRenderer.enabled = enable;
             paddleCollider.enabled = enable;
         }
+
+        #endregion
     }
 }

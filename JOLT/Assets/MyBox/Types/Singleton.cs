@@ -4,7 +4,6 @@ namespace MyBox
 {
 	public abstract class Singleton<T>: MonoBehaviour where T : MonoBehaviour
 	{
-        [AutoProperty, SerializeField]
 		private static T _instance;
 
 		public static T Instance
