@@ -9,10 +9,10 @@ namespace GameEntity.Collectables {
         [SerializeField, Tooltip("The move speed of this collectable"), PositiveValueOnly]
         private float moveSpeed;
 
-        private Core playerCore;
+        protected Core PlayerCore { get; private set; }
 
         private void Update() {
-            transform.position = Vector2.MoveTowards(transform.position, playerCore.transform.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, PlayerCore.transform.position, moveSpeed * Time.deltaTime);
         }
 
         #region Utils
@@ -29,7 +29,7 @@ namespace GameEntity.Collectables {
         protected abstract void OnCollectedEvent();
 
         internal void SetTargetCore(Core target) {
-            playerCore = target;
+            PlayerCore = target;
         }
 
         #endregion

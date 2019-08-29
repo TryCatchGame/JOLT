@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 2279167}
   - component: {fileID: 2279168}
   m_Layer: 0
-  m_Name: EnemyManager
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,16 +163,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80730ff53c5d1444d884e8f39834809b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnInterval:
+    minMaxSpawnInterval:
+      Min: 1.5
+      Max: 4
+  playerCore: {fileID: 1418268775}
+  additionalSpawnDistance: 7
   enemiesToSpawn:
   - {fileID: 1433783798784909894, guid: a6b3564be0cf5744fb791d6c5e1e682f, type: 3}
   - {fileID: 288024172821621934, guid: ebde0225761419a499a331c0982dfc9d, type: 3}
   - {fileID: 7662016088140230492, guid: ea8e6299f045d6840a07b033f6d44df1, type: 3}
-  enemySpawnInterval:
-    minMaxSpawnInterval:
-      Min: 1.5
-      Max: 4
-  enemyTargetCore: {fileID: 1418268775}
-  additionalSpawnDistance: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +825,57 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.71
+--- !u!1 &1544795576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544795577}
+  - component: {fileID: 1544795578}
+  m_Layer: 0
+  m_Name: CollectableSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1544795577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544795576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1651736557}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1544795578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544795576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cc128f4453599498b617fc2f0b1a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnInterval:
+    minMaxSpawnInterval:
+      Min: 10
+      Max: 20
+  playerCore: {fileID: 1418268775}
+  additionalSpawnDistance: 5
+  collectablesToSpawn:
+  - {fileID: 7977150798990812218, guid: db4cdc60d6becdf4c9939b8e3b6051b5, type: 3}
 --- !u!1 &1651736556
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2279167}
+  - {fileID: 1544795577}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

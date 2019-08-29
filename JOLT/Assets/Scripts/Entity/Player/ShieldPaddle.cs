@@ -24,13 +24,15 @@
 
             ClampShieldLifeCount();
 
+            if (shieldLifeCount <= 0) {
+                DisableShieldIfActive();
+            }
+
             #region Local_Function
 
             void ClampShieldLifeCount() {
                 if (shieldLifeCount < 0) {
                     shieldLifeCount = 0;
-
-                    DisableShieldIfActive();
                 }
             }
 
@@ -42,6 +44,5 @@
 
             #endregion
         }
-
     }
 }
