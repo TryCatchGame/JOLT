@@ -7,14 +7,18 @@ namespace GameEntity.Enemy {
     [RequireComponent(typeof(Enemy))]
     public class BorderCollisionChecker : MonoBehaviour {
 
-        private Camera mainCameraRef;
+        private static Camera mainCameraRef;
 
         private void Awake() {
-            mainCameraRef = Camera.main;
+            if (mainCameraRef == null) {
+                mainCameraRef = Camera.main;
+            }
         }
 
         internal bool IsCollidingWithScreenBorder() {
-            Vector3 pos = mainCameraRef.WorldToViewportPoint(transform.position);
+            Vector2 pos = mainCameraRef.WorldToViewportPoint(transform.position);
+
+            Debug.Log(pos);
 
             if (pos.x < 0.0) { return true; }
             if (1.0 < pos.x) { return true; }

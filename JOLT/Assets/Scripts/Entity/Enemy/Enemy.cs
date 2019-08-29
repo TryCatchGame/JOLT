@@ -20,8 +20,6 @@ namespace GameEntity.Enemy {
         [SerializeField, Tooltip("The move speed of the enemy"), PositiveValueOnly]
         private float moveSpeed;
 
-        private bool isMovingToPlayerTarget;
-
         private string playerTag;
 
         protected Core PlayerTarget {
@@ -39,12 +37,20 @@ namespace GameEntity.Enemy {
             get; private set;
         }
 
+        protected bool IsMovingToPlayerTarget {
+            get; private set;
+        }
+
         private void Awake() {
-            isMovingToPlayerTarget = true;
+            if (borderCollisionChecker == null) {
+                borderCollisionChecker = GetComponent<BorderCollisionChecker>();
+            }
+
+            IsMovingToPlayerTarget = true;
         }
 
         void Update() {
-            if (isMovingToPlayerTarget) {
+            if (IsMovingToPlayerTarget) {
                 UpdateMovementToPlayerTarget();
             } else {
                 UpdateMovementByFreeMoveDirection();
@@ -64,7 +70,7 @@ namespace GameEntity.Enemy {
 
             void TargetPlayerIfOutOfBounds() {
                 if (borderCollisionChecker.IsCollidingWithScreenBorder()) {
-                    isMovingToPlayerTarget = true;
+                    IsMovingToPlayerTarget = true;
                     OnCollisionEvent(CollisionType.SCREEN_BORDER);
 
                     CreateCollisionEffect();
@@ -111,8 +117,12 @@ namespace GameEntity.Enemy {
             playerTag = PlayerTarget.tag;
         }
 
-        protected void SetFreeMoveDirection(Vector2 moveDirection) {
+        internal void SetFreeMoveDirection(Vector2 moveDirection, bool enableFreeMove = true) {
             FreeMoveDirection = moveDirection.normalized;
+
+            if (enableFreeMove) {
+                IsMovingToPlayerTarget = false;
+            }
         }
 
         #endregion
