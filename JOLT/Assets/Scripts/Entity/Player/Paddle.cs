@@ -29,13 +29,22 @@ namespace GameEntity.Player {
         [SerializeField, Tooltip("How fast this paddle rotates"), PositiveValueOnly]
         private float paddleRotationSpeed;
 
-        [Separator("Collection of collectables")]
-        [SerializeField, Tooltip("The tag for collectables"), Tag]
-        private string collectableTag;
+        private PlayerCollisionTags paddleCollisionTags;
 
         private PaddleRotationDirection currentRotationDirection;
 
+        internal bool IsEnabled {
+            get => paddleRenderer.enabled && paddleCollider.enabled;
+        }
+
         private void Awake() {
+            if (paddleRenderer == null) {
+                paddleRenderer = GetComponent<SpriteRenderer>();
+            }
+            if (paddleCollider == null) {
+                paddleCollider = GetComponent<Collider2D>();
+            }
+
             currentRotationDirection = PaddleRotationDirection.NONE;
         }
 
@@ -55,12 +64,16 @@ namespace GameEntity.Player {
 
             if (TryGetCollectableFromCollision(out Collectable collidedCollectable)) {
                 collidedCollectable.Collect();
+            } else if (collision.gameObject.CompareTag(paddleCollisionTags.EnemyTag)) {
+                if (this is ShieldPaddle) {
+                    (this as ShieldPaddle).DecreaseShieldLife();
+                }
             }
 
             #region Local_Function
 
             bool TryGetCollectableFromCollision(out Collectable collectable) {
-                if (collision.gameObject.CompareTag(collectableTag)) {
+                if (collision.gameObject.CompareTag(paddleCollisionTags.CollectableTag)) {
                     collectable = collision.gameObject.GetComponent<Collectable>();
                 } else {
                     collectable = null;
@@ -89,6 +102,10 @@ namespace GameEntity.Player {
         internal void EnablePaddle(bool enable) {
             paddleRenderer.enabled = enable;
             paddleCollider.enabled = enable;
+        }
+
+        internal void SetPaddleCollisionTags(PlayerCollisionTags collisionTags) {
+            paddleCollisionTags = collisionTags;
         }
 
         #endregion

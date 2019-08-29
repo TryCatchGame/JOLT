@@ -5,17 +5,44 @@ using MyBox;
 namespace GameEntity.Player {
     public class Core : MonoBehaviour {
 
-        [SerializeField, Tooltip("The tag for the enemies"), Tag]
-        private string enemyTag;
+        #region CorePaddles_Struct
 
-        [SerializeField, Tooltip("The tag for the collectables"), Tag]
-        private string collectableTag;
+        [System.Serializable]
+        private struct CorePaddles {
+            [SerializeField, Tooltip("The main paddle for the player"), MustBeAssigned]
+            private Paddle playerPaddle;
+
+            [SerializeField, Tooltip("The shield paddle for the player"), MustBeAssigned]
+            private ShieldPaddle shieldPaddle;
+
+            public Paddle PlayerPaddle { get => playerPaddle; }
+            public ShieldPaddle ShieldPaddle { get => shieldPaddle; }
+
+            internal void SetPlayerCollisionTags(PlayerCollisionTags collisionTags) {
+                shieldPaddle.SetPaddleCollisionTags(collisionTags);
+                playerPaddle.SetPaddleCollisionTags(collisionTags);
+            }
+        }
+
+        #endregion
+
+        [Separator("Core paddles")]
+        [SerializeField, Tooltip("The respective paddles for the core"), MustBeAssigned]
+        private CorePaddles corePaddles;
+
+        [Separator("Collision Tags")]
+        [SerializeField, Tooltip("The respective collision tags"), MustBeAssigned]
+        private PlayerCollisionTags playerCollisionTags;
+
+        private void Awake() {
+            corePaddles.SetPlayerCollisionTags(playerCollisionTags);
+        }
 
         private void OnCollisionEnter2D(Collision2D collision) {
 
-            if (CollisionHasTag(collectableTag)) {
+            if (CollisionHasTag(playerCollisionTags.CollectableTag)) {
                 Destroy(collision.gameObject);
-            } else if (CollisionHasTag(enemyTag)) {
+            } else if (CollisionHasTag(playerCollisionTags.EnemyTag)) {
                 TriggerGameOver();
             }
 
@@ -30,6 +57,10 @@ namespace GameEntity.Player {
 
         private void TriggerGameOver() {
             // TODO: Trigger event that the player's core got hit by an enemy.
+        }
+
+        internal void IncreaseShieldPaddleLife() {
+            corePaddles.ShieldPaddle.IncrementShieldLife();
         }
 
     }

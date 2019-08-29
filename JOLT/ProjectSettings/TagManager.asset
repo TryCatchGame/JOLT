@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - PowerUps
+  - Collectables
   layers:
   - Default
   - TransparentFX
@@ -16,7 +16,7 @@ TagManager:
   - 
   - 
   - Enemy
-  - PowerUp
+  - Collectables
   - Player
   - 
   - 
@@ -46,7 +46,7 @@ TagManager:
   - name: Effects
     uniqueID: 2312585069
     locked: 0
-  - name: PowerUps
+  - name: Collectables
     uniqueID: 1590833611
     locked: 0
   - name: Enemy

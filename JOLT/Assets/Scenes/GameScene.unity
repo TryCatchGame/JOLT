@@ -268,8 +268,8 @@ GameObject:
   - component: {fileID: 1019283146}
   - component: {fileID: 1019283145}
   - component: {fileID: 1019283144}
-  - component: {fileID: 1019283143}
   - component: {fileID: 1019283147}
+  - component: {fileID: 1019283143}
   m_Layer: 10
   m_Name: PaddleShield
   m_TagString: Player
@@ -315,11 +315,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1019283141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb007c68a6c5882479a1d454fa1bc078, type: 3}
+  m_Script: {fileID: 11500000, guid: 9caa65817b18c16439be7fbae27d9b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddleRenderer: {fileID: 1019283146}
-  paddleCollider: {fileID: 1019283145}
+  paddleRenderer: {fileID: 0}
+  paddleCollider: {fileID: 0}
   targetCore: {fileID: 1418268775}
   paddleRotationSpeed: 300
 --- !u!60 &1019283145
@@ -782,6 +782,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98eca813e193e5244b96e41bb6e0246d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corePaddles:
+    playerPaddle: {fileID: 1045946186}
+    shieldPaddle: {fileID: 1019283144}
+  playerCollisionTags:
+    collectableTag: Collectables
+    enemyTag: Enemy
 --- !u!50 &1418268776
 Rigidbody2D:
   serializedVersion: 4
