@@ -1,7 +1,6 @@
 # Contributing
 
-JOLT is an Open-sourced game. We appreciate any contributions made by anyone.<br>H
-However, please follow the contributing guidelines when possible:
+JOLT is an Open-sourced game. We appreciate any contributions made by anyone.<br>However, please follow the contributing guidelines when possible:
 
 ## Coding Style
 
@@ -23,4 +22,4 @@ The link to the github-project for this game is here:
 [Jolt Rework Project](https://github.com/orgs/TryCatchGame/projects/1)
 
 Generally, try to do features under `To do`.<br>
-Features that are in the `In Progress` column is most likely being done by us, [TryCatch Jolt Developers](https://github.com/orgs/TryCatchGame/teams/jolt-developers), already.
+Features that are in the `In Progress` column is most likely being done by us, [TryCatch Team](https://github.com/orgs/TryCatchGame/people), already.
