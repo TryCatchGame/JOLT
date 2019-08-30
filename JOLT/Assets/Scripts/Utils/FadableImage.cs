@@ -19,6 +19,9 @@ namespace GameUtility {
         [SerializeField, Tooltip("The default speed to fade at"), PositiveValueOnly]
         private float defaultFadeSpeed;
 
+        [SerializeField, Tooltip("The min and max alpha value it can go to"), MinMaxRange(0f, 1f)]
+        private MinMaxFloat minMaxAlpha;
+
         private Coroutine fadeCoroutine;
 
         private void Awake() {
@@ -32,13 +35,13 @@ namespace GameUtility {
         }
 
         internal void FadeInImage(float fadeSpeed) {
-            FadeInImage(null, defaultFadeSpeed);
+            FadeInImage(null, fadeSpeed);
         }
 
         internal void FadeInImage(OnFadeCompleted callback, float fadeSpeed) {
             StopFadeCoroutineIfExists();
 
-            fadeCoroutine = StartCoroutine(FadeCoroutine(0, 1, callback, fadeSpeed));
+            fadeCoroutine = StartCoroutine(FadeCoroutine(minMaxAlpha.Min, minMaxAlpha.Max, callback, fadeSpeed));
         }
 
         internal void FadeOutImage(OnFadeCompleted callback) {
@@ -52,7 +55,7 @@ namespace GameUtility {
         internal void FadeOutImage(OnFadeCompleted callback, float fadeSpeed) {
             StopFadeCoroutineIfExists();
 
-            fadeCoroutine = StartCoroutine(FadeCoroutine(1, 0, callback, fadeSpeed));
+            fadeCoroutine = StartCoroutine(FadeCoroutine(minMaxAlpha.Max, minMaxAlpha.Min, callback, fadeSpeed));
         }
 
         #region Utils
@@ -65,7 +68,7 @@ namespace GameUtility {
                 LerpImageAlphaColor(fromAlpha, toAlpha, progress);
 
                 yield return new WaitForEndOfFrame();
-                progress += (Time.unscaledDeltaTime * fadeSpeed);
+                progress += (Time.unscaledDeltaTime * fadeSpeed) / 100f;
             }
             // Ensures that the image is completed faded at the end.
             LerpImageAlphaColor(fromAlpha, toAlpha, 1);

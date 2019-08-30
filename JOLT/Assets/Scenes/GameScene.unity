@@ -702,7 +702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1068637756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -764,7 +764,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1068637758}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1546182806}
+        m_MethodName: TriggerTimeSlow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1068637758
@@ -817,6 +828,7 @@ GameObject:
   - component: {fileID: 1111881079}
   - component: {fileID: 1111881081}
   - component: {fileID: 1111881080}
+  - component: {fileID: 1111881082}
   m_Layer: 5
   m_Name: TimeSlowActiveBG
   m_TagString: Untagged
@@ -856,7 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.34509805, g: 0.6862745, b: 1, a: 1}
+  m_Color: {r: 0.27069238, g: 0.65725315, b: 0.745283, a: 0}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -881,6 +893,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111881078}
   m_CullTransparentMesh: 0
+--- !u!114 &1111881082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111881078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b207f076a7f6a964d873cf914ac3b46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageToFade: {fileID: 1111881080}
+  defaultFadeSpeed: 200
+  minMaxAlpha:
+    Min: 0
+    Max: 0.6
 --- !u!1 &1317588777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,7 +1167,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1544795577
 Transform:
@@ -1168,12 +1197,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnInterval:
     minMaxSpawnInterval:
-      Min: 10
+      Min: 9
       Max: 20
   playerCore: {fileID: 1418268775}
   additionalSpawnDistance: 5
   collectablesToSpawn:
   - {fileID: 7977150798990812218, guid: db4cdc60d6becdf4c9939b8e3b6051b5, type: 3}
+  - {fileID: 6795857792944930205, guid: a947c18cabd2f914e8cbe251cff208de, type: 3}
+--- !u!1 &1546182804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546182805}
+  - component: {fileID: 1546182806}
+  m_Layer: 0
+  m_Name: TimeSlowManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1546182805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546182804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1651736557}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1546182806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546182804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6668cd1a5285349ab99463d11e5110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSlowedBackgroundEffect:
+    timeSlowedImage: {fileID: 1111881082}
+    fadeSpeed: 250
+  timeSlowCounterDisplay:
+    countingImage: {fileID: 1693405966}
+    countingSprites:
+    - {fileID: -3352899951365932364, guid: 2663fcaff844e8a449165db99825bd12, type: 3}
+    - {fileID: 4254380893219793985, guid: 2663fcaff844e8a449165db99825bd12, type: 3}
+    - {fileID: 9196773086300795022, guid: 2663fcaff844e8a449165db99825bd12, type: 3}
+  timeSlowTriggerButton: {fileID: 1068637757}
+  timeSlowProperty:
+    slowTimeScale: 0.65
+    slowDownTimeSpeed: 250
+    timeSlowDuration: 7.5
 --- !u!1 &1619075571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1356,7 @@ Transform:
   m_Children:
   - {fileID: 2279167}
   - {fileID: 1544795577}
+  - {fileID: 1546182805}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1289,7 +1377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1693405965
 RectTransform:
   m_ObjectHideFlags: 0

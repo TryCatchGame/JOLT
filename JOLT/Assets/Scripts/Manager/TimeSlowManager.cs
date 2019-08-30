@@ -125,6 +125,10 @@ namespace GameManager {
             timeSlowTimer = new Timer(timeSlowProperty.TimeSlowDuration, StopTimeSlow, false, false);
         }
 
+        private void Update() {
+            timeSlowTimer.Update(Time.unscaledDeltaTime);
+        }
+
         private void StopTimeSlow() {
             SpeedBackTime();
             timeSlowedBackgroundEffect.FadeOutEffect(EnableTimeSlowButton);
@@ -132,14 +136,16 @@ namespace GameManager {
             #region Local_Function
 
             void SpeedBackTime() {
-                SlowlyLerpTimeScaleBySpeed(timeSlowProperty.SlowTimeScale, 1f, timeSlowProperty.SlowDownTimeSpeed);
+                StartCoroutine(SlowlyLerpTimeScaleBySpeed(timeSlowProperty.SlowTimeScale, 1f, timeSlowProperty.SlowDownTimeSpeed));
             }
 
             #endregion
         }
 
-        internal void TriggerTimeSlow() {
+        public void TriggerTimeSlow() {
             --TimeSlowUsableCount;
+            ClampTimeSlowUsableCount();
+            UpdateTimeSlowCounterDisplay();
             if (TimeSlowUsableCount <= 0) {
                 DisableTimeSlowButtonIfEnabled();
             }
@@ -147,11 +153,12 @@ namespace GameManager {
             SetTimeSlowButtonInteractivity(false);
             SlowDownTime();
             timeSlowedBackgroundEffect.FadeInEffect();
+            timeSlowTimer.ResetTimer();
 
             #region Local_Function
 
             void SlowDownTime() {
-                SlowlyLerpTimeScaleBySpeed(1f, timeSlowProperty.SlowTimeScale, timeSlowProperty.SlowDownTimeSpeed);
+                StartCoroutine(SlowlyLerpTimeScaleBySpeed(1f, timeSlowProperty.SlowTimeScale, timeSlowProperty.SlowDownTimeSpeed));
             }
 
             void DisableTimeSlowButtonIfEnabled() {
@@ -165,10 +172,23 @@ namespace GameManager {
 
         #region Utils
 
+        private void UpdateTimeSlowCounterDisplay() {
+            timeSlowCounterDisplay.SetCurrentCountDisplay(TimeSlowUsableCount);
+        }
+
+        private void ClampTimeSlowUsableCount() {
+            if (TimeSlowUsableCount > timeSlowCounterDisplay.MaxCount) {
+                TimeSlowUsableCount = timeSlowCounterDisplay.MaxCount;
+            } else if (TimeSlowUsableCount < 0) {
+                TimeSlowUsableCount = 0;
+            }
+        }
+
         internal void AddTimeSlowUsableCount() {
             ++TimeSlowUsableCount;
-
+            ClampTimeSlowUsableCount();
             EnableTimeSlowButtonIfDisabled();
+            UpdateTimeSlowCounterDisplay();
 
             #region Local_Function
 
@@ -196,7 +216,7 @@ namespace GameManager {
                 Time.timeScale = Mathf.Lerp(from, to, progress);
 
                 yield return new WaitForEndOfFrame();
-                progress += Time.unscaledDeltaTime * lerpSpeed;
+                progress += (Time.unscaledDeltaTime * lerpSpeed) / 100f;
             }
 
             Time.timeScale = to;

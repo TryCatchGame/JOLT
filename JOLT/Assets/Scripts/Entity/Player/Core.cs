@@ -2,6 +2,8 @@
 
 using MyBox;
 
+using GameEntity.Collectables;
+
 namespace GameEntity.Player {
     public class Core : MonoBehaviour {
 
@@ -41,7 +43,7 @@ namespace GameEntity.Player {
         private void OnCollisionEnter2D(Collision2D collision) {
 
             if (CollisionHasTag(playerCollisionTags.CollectableTag)) {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<Collectable>().Destroy();
             } else if (CollisionHasTag(playerCollisionTags.EnemyTag)) {
                 TriggerGameOver();
             }

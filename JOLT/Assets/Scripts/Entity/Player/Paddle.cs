@@ -37,6 +37,8 @@ namespace GameEntity.Player {
             get => paddleRenderer.enabled && paddleCollider.enabled;
         }
 
+        internal bool CanMove { get; set; }
+
         private void Awake() {
             if (paddleRenderer == null) {
                 paddleRenderer = GetComponent<SpriteRenderer>();
@@ -46,15 +48,18 @@ namespace GameEntity.Player {
             }
 
             currentRotationDirection = PaddleRotationDirection.NONE;
+            CanMove = true;
         }
 
         private void Update() {
+            if (!CanMove) { return; }
+
             transform.RotateAround(targetCore.transform.position, Vector3.forward, GetCurrentRotationSpeed());
 
             #region Local_Function
 
             float GetCurrentRotationSpeed() {
-                return paddleRotationSpeed * Time.deltaTime * ((int)currentRotationDirection);
+                return paddleRotationSpeed * Time.unscaledDeltaTime * ((int)currentRotationDirection);
             }
 
             #endregion

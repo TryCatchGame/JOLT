@@ -74,6 +74,10 @@
             IsActive = true;
         }
 
+        internal void StopTimer() {
+            IsActive = false;
+        }
+
         #endregion
     }
 }
