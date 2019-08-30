@@ -8,6 +8,9 @@ namespace GameInterface.MainMenu {
     /// Handles the 'tap anywhere to play' interaction for the player.
     /// </summary>
     public class TapToPlayInteraction : Singleton<TapToPlayInteraction> {
+        [SerializeField, Tooltip("The game scene that it will transition to."), MustBeAssigned]
+        private SceneReference gameScene;
+
         private bool isEditor;
 
         private EventSystem currentEventSystem;
