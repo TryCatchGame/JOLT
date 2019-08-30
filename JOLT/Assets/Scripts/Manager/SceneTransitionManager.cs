@@ -12,11 +12,11 @@ namespace GameManager {
             SceneManager.LoadScene(sceneName);
         }
 
-        internal void TransitionToSceneWitnAsync(SceneReference sceneReference) {
-            TransitionToSceneWitnAsync(sceneReference.SceneName);
+        internal void TransitionToSceneWithAsync(SceneReference sceneReference) {
+            TransitionToSceneWithAsync(sceneReference.SceneName);
         }
 
-        internal void TransitionToSceneWitnAsync(string sceneName) {
+        internal void TransitionToSceneWithAsync(string sceneName) {
             SceneManager.LoadSceneAsync(sceneName);
         }
 

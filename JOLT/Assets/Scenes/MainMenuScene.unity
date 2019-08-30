@@ -196,10 +196,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameScene:
-    Scene: {fileID: 0}
-    SceneName: 
-    sceneIndex: -1
-    sceneEnabled: 0
+    Scene: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+    SceneName: GameScene
+    sceneIndex: 0
+    sceneEnabled: 1
 --- !u!1 &1148090645
 GameObject:
   m_ObjectHideFlags: 0

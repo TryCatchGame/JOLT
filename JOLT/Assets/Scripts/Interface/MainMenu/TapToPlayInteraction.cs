@@ -3,6 +3,8 @@ using UnityEngine.EventSystems;
 
 using MyBox;
 
+using GameManager;
+
 namespace GameInterface.MainMenu {
     /// <summary>
     /// Handles the 'tap anywhere to play' interaction for the player.
@@ -37,8 +39,10 @@ namespace GameInterface.MainMenu {
             #region Local_Function
 
             void TransitionToPlayScene() {
-                Debug.Log("Transitioning!");
-                // TODO: Literally the function's name
+                // TODO: Transition effect
+
+                SceneTransitionManager.Instance.TransitionToSceneWithAsync(gameScene);
+                CanTransition = false;
             }
 
             bool TappedOnNonInterface() {
