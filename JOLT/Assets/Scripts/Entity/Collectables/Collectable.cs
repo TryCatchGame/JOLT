@@ -9,6 +9,12 @@ namespace GameEntity.Collectables {
         [SerializeField, Tooltip("The move speed of this collectable"), PositiveValueOnly]
         private float moveSpeed;
 
+        [SerializeField, Tooltip("True if this gives a gem to the player")]
+        private bool givesGem;
+
+        [ConditionalField(nameof(givesGem), false, true),SerializeField, Tooltip("How many gems this gives the player"), PositiveValueOnly]
+        private int gemCount;
+
         protected Core PlayerCore { get; private set; }
 
         private void Update() {
@@ -23,6 +29,10 @@ namespace GameEntity.Collectables {
         internal void Collect() {
             OnCollectedEvent();
 
+            if (givesGem) {
+                AddGemToPlayer();
+            }
+
             CreateCollectedEffect();
             Destroy(gameObject);
 
@@ -30,6 +40,10 @@ namespace GameEntity.Collectables {
 
             void CreateCollectedEffect() {
                 // TODO: Do effect when this is collected;
+            }
+
+            void AddGemToPlayer() {
+                // TODO: Actually add gem to player.
             }
 
             #endregion

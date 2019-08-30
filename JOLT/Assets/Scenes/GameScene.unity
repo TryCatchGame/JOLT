@@ -1204,6 +1204,7 @@ MonoBehaviour:
   collectablesToSpawn:
   - {fileID: 7977150798990812218, guid: db4cdc60d6becdf4c9939b8e3b6051b5, type: 3}
   - {fileID: 6795857792944930205, guid: a947c18cabd2f914e8cbe251cff208de, type: 3}
+  - {fileID: 3721023067774771197, guid: 9160d2da818263f4bb92befc6cf44b4c, type: 3}
 --- !u!1 &1546182804
 GameObject:
   m_ObjectHideFlags: 0

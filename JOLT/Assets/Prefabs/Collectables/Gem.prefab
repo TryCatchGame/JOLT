@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6795857792944930214
+--- !u!1 &3721023067774771193
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6795857792944930211}
-  - component: {fileID: 6795857792944930208}
-  - component: {fileID: 6795857792944930209}
-  - component: {fileID: 6795857792944930210}
-  - component: {fileID: 6795857792944930205}
+  - component: {fileID: 3721023067774771194}
+  - component: {fileID: 3721023067774771195}
+  - component: {fileID: 3721023067774771192}
+  - component: {fileID: 3721023067774771197}
+  - component: {fileID: 4069700865385998178}
   m_Layer: 9
-  m_Name: TimeSlowPowerUp
+  m_Name: Gem
   m_TagString: Collectables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6795857792944930211
+--- !u!4 &3721023067774771194
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795857792944930214}
+  m_GameObject: {fileID: 3721023067774771193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.31, y: -1.92, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6795857792944930208
+--- !u!212 &3721023067774771195
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795857792944930214}
+  m_GameObject: {fileID: 3721023067774771193}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,30 +71,30 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1590833611
   m_SortingLayer: 2
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -5265578627216019793, guid: 5cd6f690661d8a548ab87b00af0a6e8b,
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -563115975170301998, guid: 5cd6f690661d8a548ab87b00af0a6e8b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.18, y: 2.26}
+  m_Size: {x: 1.2, y: 2.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6795857792944930209
+--- !u!95 &3721023067774771192
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795857792944930214}
+  m_GameObject: {fileID: 3721023067774771193}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4b0c79d5f4687044daa1391540ed441d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 525118c17e8231944907d27eb9760f64, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -103,13 +103,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &6795857792944930210
+--- !u!114 &3721023067774771197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721023067774771193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf0d7a516ce9474f900092316853a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  givesGem: 1
+  gemCount: 2
+--- !u!61 &4069700865385998178
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795857792944930214}
+  m_GameObject: {fileID: 3721023067774771193}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -120,27 +135,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.18, y: 2.26}
-    newSize: {x: 1.18, y: 2.26}
+    oldSize: {x: 1.2, y: 2.28}
+    newSize: {x: 1.2, y: 2.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.18, y: 2.26}
+  m_Size: {x: 1.2, y: 2.28}
   m_EdgeRadius: 0
---- !u!114 &6795857792944930205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795857792944930214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810116ca03d322d4dabbd1ed2d566095, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  givesGem: 1
-  gemCount: 1
