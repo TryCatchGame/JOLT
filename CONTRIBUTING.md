@@ -8,14 +8,14 @@ Attempt to follow the [C# Coding Convention](https://docs.microsoft.com/en-us/do
 
 Generally, follow the coding style that is set in the file you are editing, or look at a similar file if you are adding a new one
 
-### Pull Requests
+## Pull Requests
 
 Pull-requests should contain description of changes made.<br>
 If it related to an Issue posted in the [Issues section](https://github.com/TryCatchGame/JOLT/issues), reference to it in the pull request too.
 
 If applicable, it should contain any negative/positive effects of the changes made too.
 
-#### Project
+### Project
 
 The link to the github-project for this game is here:
 
