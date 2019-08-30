@@ -27,8 +27,12 @@ namespace GameUtility {
             }
         }
 
-        internal void FadeInImage(OnFadeCompleted callback) {
+        internal void FadeInImage(OnFadeCompleted callback = null) {
             FadeInImage(callback, defaultFadeSpeed);
+        }
+
+        internal void FadeInImage(float fadeSpeed) {
+            FadeInImage(null, defaultFadeSpeed);
         }
 
         internal void FadeInImage(OnFadeCompleted callback, float fadeSpeed) {
@@ -41,6 +45,10 @@ namespace GameUtility {
             FadeOutImage(callback, defaultFadeSpeed);
         }
 
+        internal void FadeOutImage(float fadeSpeed) {
+            FadeOutImage(null, defaultFadeSpeed);
+        }
+
         internal void FadeOutImage(OnFadeCompleted callback, float fadeSpeed) {
             StopFadeCoroutineIfExists();
 
@@ -49,7 +57,7 @@ namespace GameUtility {
 
         #region Utils
 
-        internal IEnumerator FadeCoroutine(float fromAlpha, float toAlpha, OnFadeCompleted callback, float fadeSpeed) {
+        private IEnumerator FadeCoroutine(float fromAlpha, float toAlpha, OnFadeCompleted callback, float fadeSpeed) {
             Color temp;
 
             float progress = 0f;
@@ -57,11 +65,12 @@ namespace GameUtility {
                 LerpImageAlphaColor(fromAlpha, toAlpha, progress);
 
                 yield return new WaitForEndOfFrame();
-                progress += (Time.unscaledDeltaTime * defaultFadeSpeed);
+                progress += (Time.unscaledDeltaTime * fadeSpeed);
             }
-
             // Ensures that the image is completed faded at the end.
             LerpImageAlphaColor(fromAlpha, toAlpha, 1);
+
+            callback?.Invoke();
 
             yield return null;
 

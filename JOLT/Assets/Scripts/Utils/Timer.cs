@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace GameUtility {
+﻿namespace GameUtility {
 
     /// <summary>
     /// A very simple timer that relies on the game update to run.
@@ -23,28 +19,28 @@ namespace GameUtility {
         /// <summary>
         /// How long to wait for before the timer interval is reached.
         /// </summary>
-        internal float Duration { get; set; }
+        internal float Duration { get; private set; }
 
-        internal bool IsActive { get; set; }
+        internal bool IsActive { get; private set; }
 
         #region Constructor
 
-        internal Timer(float duration, bool autoReset = true) {
+        internal Timer(float duration, bool autoReset = true, bool activeOnStart = true) {
             onTimerIntervalEvent = delegate { };
             Duration = duration;
             AutoReset = autoReset;
 
             timer = 0f;
-            IsActive = true;
+            IsActive = activeOnStart;
         }
 
-        internal Timer(float duration, OnTimerInterval onTimerInterval, bool autoReset = true) {
+        internal Timer(float duration, OnTimerInterval onTimerInterval, bool autoReset = true, bool activeOnStart = true) {
             onTimerIntervalEvent = onTimerInterval;
             AutoReset = autoReset;
             Duration = duration;
 
             timer = 0f;
-            IsActive = true;
+            IsActive = activeOnStart;
         }
 
         #endregion
