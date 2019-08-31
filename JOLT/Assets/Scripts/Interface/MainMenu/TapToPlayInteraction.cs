@@ -13,6 +13,9 @@ namespace GameInterface.MainMenu {
         [SerializeField, Tooltip("The respective canvas to fade out when the player taps to play."), MustBeAssigned]
         private FadeOutCanvas[] canvasesToFadeOut;
 
+        [SerializeField, Tooltip("The loading circle to show when transitioning"), MustBeAssigned]
+        private LoadingCircle loadingCircle;
+
         private bool isEditor;
 
         private EventSystem currentEventSystem;
@@ -33,19 +36,20 @@ namespace GameInterface.MainMenu {
             if (!CanTransition) { return; }
 
             if (TappedOnNonInterface()) {
+                CanTransition = false;
                 DoFadeOutTransitionEffect();
             }
 
             #region Local_Function
 
             void DoFadeOutTransitionEffect() {
-                CanTransition = false;
+                loadingCircle.ShowLoadingCircle();
 
                 foreach (var canvasToFadeOut in canvasesToFadeOut) {
                     canvasToFadeOut.FadeOut();
                 }
                 // One of the canvas's animation has been attached with
-                // a script 'GameAnimationBehaviour.TransitionToSceneOnStateExitBehaviour'
+                // a script 'GameAnimationBehaviour.TransitionToSceneOnStateExitBehaviour'.
             }
 
             bool TappedOnNonInterface() {
