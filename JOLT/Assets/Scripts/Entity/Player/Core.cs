@@ -28,6 +28,10 @@ namespace GameEntity.Player {
 
         #endregion
 
+        [Separator("DEBUG")]
+        [SerializeField, Tooltip("True if the player can never die")]
+        private bool invulnerable;
+
         [Separator("Core paddles")]
         [SerializeField, Tooltip("The respective paddles for the core"), MustBeAssigned]
         private CorePaddles corePaddles;
@@ -37,6 +41,10 @@ namespace GameEntity.Player {
         private PlayerCollisionTags playerCollisionTags;
 
         private void Awake() {
+            if (!Application.isEditor) {
+                invulnerable = false;
+            }
+
             corePaddles.SetPlayerCollisionTags(playerCollisionTags);
         }
 
@@ -58,6 +66,8 @@ namespace GameEntity.Player {
         }
 
         private void TriggerGameOver() {
+            if (invulnerable) { return; }
+
             // TODO: Trigger event that the player's core got hit by an enemy.
         }
 
