@@ -91,9 +91,9 @@ namespace GameEntity.Player {
             if (TryGetCollectableFromCollision(out Collectable collidedCollectable)) {
                 collidedCollectable.Collect();
             } else if (collision.gameObject.CompareTag(paddleCollisionTags.EnemyTag)) {
-                if (this is ShieldPaddle) {
-                    (this as ShieldPaddle).DecreaseShieldLife();
-                }
+                DecreaseShieldLifeIfThisIsShieldPaddle();
+
+                // TODO: Score counting
             }
 
             #region Local_Function
@@ -106,6 +106,12 @@ namespace GameEntity.Player {
                 }
 
                 return collectable != null;
+            }
+
+            void DecreaseShieldLifeIfThisIsShieldPaddle() {
+                if (this is ShieldPaddle) {
+                    (this as ShieldPaddle).DecreaseShieldLife();
+                }
             }
 
             #endregion
