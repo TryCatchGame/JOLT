@@ -27,19 +27,26 @@ namespace GameInterface {
 
         #endregion
 
-        #region ShowMenuAnimation_Struct
+        #region ScoreTexts_Struct
 
         [System.Serializable]
-        private struct ShowMenuAnimationState {
-            [SerializeField, Tooltip("What animation to play to show this game over menu"), MustBeAssigned]
-            private AnimationClip showMenuAnimation;
+        private struct ScoreTexts {
+            [SerializeField, Tooltip("The high score text"), MustBeAssigned]
+            private Text highScoreText;
 
-            [SerializeField, Tooltip("The behaviour for this animation state"), MustBeAssigned]
-            private TriggerEventOnStateExitBehaviour eventOnStateExitBehaviour;
+            [SerializeField, Tooltip("The current score text for the current play's run"), MustBeAssigned]
+            private Text currentScoreText;
 
-            public AnimationClip ShowMenuAnimation { get => showMenuAnimation; }
-            public TriggerEventOnStateExitBehaviour EventOnStateExitBehaviour { get => eventOnStateExitBehaviour; }
-            public string AnimationStateName { get => showMenuAnimation.name; }
+            public Text HighScoreText { get => highScoreText; }
+            public Text CurrentScoreText { get => currentScoreText; }
+
+            internal void SetHighScoreText(int highScore, bool newHighScore = false) {
+                if (newHighScore) {
+                    highScoreText.text = $"NEW BEST: {highScore.ToString()}";
+                } else {
+                    highScoreText.text = $"BEST: {highScore.ToString()}";
+                }
+            }
         }
 
         #endregion
@@ -50,11 +57,15 @@ namespace GameInterface {
 
         [Separator("Animations")]
         [SerializeField, Tooltip("What animation to play to show this game over menu"), MustBeAssigned]
-        private ShowMenuAnimationState showMenuAnimationState;
+        private AnimationClip showMenuAnimation;
 
         [Separator("Resume button")]
         [SerializeField, Tooltip("The continue button in this game over menu"), MustBeAssigned]
         private ContinueButton continueButton;
+
+        [Separator("Visual displays")]
+        [SerializeField, Tooltip("The respective score texts in the game over menu"), MustBeAssigned]
+        private ScoreTexts scoreTexts;
 
         private GameObject[] childObjects;
 
@@ -64,7 +75,6 @@ namespace GameInterface {
             }
 
             SetChildObjects();
-            showMenuAnimationState.EventOnStateExitBehaviour.onAnimationStateExitEvent += EnableContinueButton;
 
             #region Local_Function
 
@@ -82,12 +92,18 @@ namespace GameInterface {
         public void ShowGameOverMenu() {
             SetActiveChildObjects(true);
 
-            animController.Play(showMenuAnimationState.AnimationStateName);
+            animController.Play(showMenuAnimation.name);
+        }
+
+        internal void SetScoreTexts(int currentScore, int highScore, bool newHighScore = false) {
+            scoreTexts.CurrentScoreText.text = currentScore.ToString();
+
+            scoreTexts.SetHighScoreText(highScore, newHighScore);
         }
 
         #region Utils
 
-        private void EnableContinueButton() {
+        internal void EnableContinueButton() {
             continueButton.Enable();
         }
 

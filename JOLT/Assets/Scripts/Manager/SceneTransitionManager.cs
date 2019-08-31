@@ -1,23 +1,26 @@
 ﻿using UnityEngine.SceneManagement;
+using UnityEngine;
 
 using MyBox;
 
 namespace GameManager {
     public class SceneTransitionManager : Singleton<SceneTransitionManager> {
-        internal void TransitionToScene(SceneReference sceneReference) {
+        public void TransitionToScene(SceneReference sceneReference) {
             TransitionToScene(sceneReference.SceneName);
         }
 
-        internal void TransitionToScene(string sceneName) {
+        public void TransitionToScene(string sceneName) {
+            Time.timeScale = 1f;
             SceneManager.LoadScene(sceneName);
         }
 
-        internal void TransitionToSceneWithAsync(SceneReference sceneReference) {
+        public void TransitionToSceneWithAsync(SceneReference sceneReference) {
             TransitionToSceneWithAsync(sceneReference.SceneName);
         }
 
-        internal void TransitionToSceneWithAsync(string sceneName) {
-            SceneManager.LoadSceneAsync(sceneName);
+        public void TransitionToSceneWithAsync(string sceneName) {
+            var loadingSceneAsync = SceneManager.LoadSceneAsync(sceneName);
+            loadingSceneAsync.completed += delegate { Time.timeScale = 1f; };
         }
 
     }

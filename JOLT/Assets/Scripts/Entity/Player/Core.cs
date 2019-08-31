@@ -3,6 +3,7 @@
 using MyBox;
 
 using GameEntity.Collectables;
+using GameManager;
 
 namespace GameEntity.Player {
     public class Core : MonoBehaviour {
@@ -23,6 +24,11 @@ namespace GameEntity.Player {
             internal void SetPlayerCollisionTags(PlayerCollisionTags collisionTags) {
                 shieldPaddle.SetPaddleCollisionTags(collisionTags);
                 playerPaddle.SetPaddleCollisionTags(collisionTags);
+            }
+
+            internal void SetCanMove(bool canMove) {
+                playerPaddle.CanMove = canMove;
+                shieldPaddle.CanMove = canMove;
             }
         }
 
@@ -65,16 +71,23 @@ namespace GameEntity.Player {
             #endregion
         }
 
+        #region Utils
+
+        internal void DisablePaddleMovement() {
+            corePaddles.SetCanMove(false);
+        }
+
         private void TriggerGameOver() {
             if (invulnerable) { return; }
 
-            // TODO: Trigger event that the player's core got hit by an enemy.
+            GameOverManager.Instance.TriggerGameOver();
         }
 
         internal void IncreaseShieldPaddleLife() {
             corePaddles.ShieldPaddle.IncrementShieldLife();
         }
 
+        #endregion
     }
 }
 
