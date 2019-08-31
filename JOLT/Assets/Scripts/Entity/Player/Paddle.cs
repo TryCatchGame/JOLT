@@ -6,7 +6,7 @@ using GameEntity.Collectables;
 
 namespace GameEntity.Player {
 
-    [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D), typeof(SpriteRenderer))]
+    [RequireComponent(typeof(Collider2D), typeof(Animator), typeof(SpriteRenderer))]
     public class Paddle : MonoBehaviour {
 
         private enum PaddleRotationDirection {
@@ -21,6 +21,13 @@ namespace GameEntity.Player {
 
         [SerializeField, AutoProperty]
         private Collider2D paddleCollider;
+
+        [SerializeField, AutoProperty]
+        private Animator animController;
+
+        [Separator("Paddle animation")]
+        [SerializeField, Tooltip("The animation to play when the paddle is enabled"), MustBeAssigned]
+        private AnimationClip paddleEnabledAnimation;
 
         [Separator("Core movements")]
         [SerializeField, Tooltip("The core which this paddle protects"), MustBeAssigned]
@@ -40,15 +47,29 @@ namespace GameEntity.Player {
         internal bool CanMove { get; set; }
 
         private void Awake() {
-            if (paddleRenderer == null) {
-                paddleRenderer = GetComponent<SpriteRenderer>();
-            }
-            if (paddleCollider == null) {
-                paddleCollider = GetComponent<Collider2D>();
-            }
+            AssignNullAutoProperties();
 
             currentRotationDirection = PaddleRotationDirection.NONE;
             CanMove = true;
+
+            if (!(this is ShieldPaddle)) {
+                EnablePaddle(true);
+            }
+
+            #region Local_Function
+
+            void AssignNullAutoProperties() {
+                if (paddleRenderer == null) {
+                    paddleRenderer = GetComponent<SpriteRenderer>();
+                }
+                if (paddleCollider == null) {
+                    paddleCollider = GetComponent<Collider2D>();
+                }
+                if (animController == null) {
+                    animController = GetComponent<Animator>();
+                }
+            }
+            #endregion
         }
 
         private void Update() {
@@ -105,6 +126,10 @@ namespace GameEntity.Player {
         }
 
         internal void EnablePaddle(bool enable) {
+            if (enable) {
+                animController.Play(paddleEnabledAnimation.name, -1, 0f);
+            }
+
             paddleRenderer.enabled = enable;
             paddleCollider.enabled = enable;
         }
