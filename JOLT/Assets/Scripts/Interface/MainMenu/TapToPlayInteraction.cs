@@ -10,8 +10,8 @@ namespace GameInterface.MainMenu {
     /// Handles the 'tap anywhere to play' interaction for the player.
     /// </summary>
     public class TapToPlayInteraction : Singleton<TapToPlayInteraction> {
-        [SerializeField, Tooltip("The game scene that it will transition to."), MustBeAssigned]
-        private SceneReference gameScene;
+        [SerializeField, Tooltip("The respective canvas to fade out when the player taps to play."), MustBeAssigned]
+        private FadeOutCanvas[] canvasesToFadeOut;
 
         private bool isEditor;
 
@@ -33,16 +33,19 @@ namespace GameInterface.MainMenu {
             if (!CanTransition) { return; }
 
             if (TappedOnNonInterface()) {
-                TransitionToPlayScene();
+                DoFadeOutTransitionEffect();
             }
 
             #region Local_Function
 
-            void TransitionToPlayScene() {
-                // TODO: Transition effect
-
-                SceneTransitionManager.Instance.TransitionToSceneWithAsync(gameScene);
+            void DoFadeOutTransitionEffect() {
                 CanTransition = false;
+
+                foreach (var canvasToFadeOut in canvasesToFadeOut) {
+                    canvasToFadeOut.FadeOut();
+                }
+                // One of the canvas's animation has been attached with
+                // a script 'GameAnimationBehaviour.TransitionToSceneOnStateExitBehaviour'
             }
 
             bool TappedOnNonInterface() {
