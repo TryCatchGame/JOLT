@@ -1,35 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using MyBox;
 
+using GameInterface.InGame;
+
 namespace GameManager {
-
 	public class CurrencyManager : Singleton<CurrencyManager> {
-
 		[Separator("Displays")]
 		[SerializeField, Tooltip("The currency menu that is displayed"), MustBeAssigned]
 		private CurrencyMenu currencyMenu;
 
-		[SerializeField, Tooltip("Current amount of money the player has.")]
-		private int money;
+		public int GemCount { get; private set; }
 
-		public int Money { get => money; private set => money = value; }
+        private void Awake() {
+            GemCount = GlobalProperties.TotalGemCount_Local;
+        }
 
-		public void ModifyMoneyValue(int modifyAmount) {
-			// Money can't go below 0.
-			money = Mathf.Max(0, money + modifyAmount);
-			// Update currency to display.
-			currencyMenu.UpdatePlayerCurrency(money);
-			// Save money.
-			PlayerPrefs.SetInt("Money", money);
-		}
+		internal void ModifyGemValue(int modifyAmount) {
+            GemCount += modifyAmount;
+            // Money can't go below 0.
+            ClampGemValue();
 
-		public bool CheckSufficientMoney(int amount) {
-			if(amount < Money) {
-				return false;
-			}
-			return true;
-		}
+            currencyMenu.UpdateGemCountText(GemCount);
+
+            GlobalProperties.TotalGemCount_Local = GemCount;
+
+            #region Local_Function
+
+            void ClampGemValue() {
+                if (GemCount < 0) {
+                    GemCount = 0;
+                }
+            }
+
+            #endregion
+        }
 	}
 }

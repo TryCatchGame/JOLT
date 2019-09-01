@@ -1,21 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using MyBox;
 
-public class CurrencyMenu : MonoBehaviour {
+namespace GameInterface.InGame {
+    public class CurrencyMenu : MonoBehaviour {
+        [Separator("Visual displays")]
+        [SerializeField, Tooltip("The currency text for the in game menu"), MustBeAssigned]
+        private TextMeshProUGUI currencyText;
 
-	[Separator("Visual displays")]
-	[SerializeField, Tooltip("The currency text for the in game menu"), MustBeAssigned]
-	private TextMeshProUGUI currencyText;
+        void Awake() {
+            currencyText.text = GlobalProperties.TotalGemCount_Local.ToString();
+        }
 
-	void Start() {
-		currencyText.text = PlayerPrefs.GetInt("Money", 0).ToString();
-	}
-
-	public void UpdatePlayerCurrency(int money) {
-		currencyText.text = money.ToString();
-	}
+        internal void UpdateGemCountText(int gem) {
+            currencyText.text = gem.ToString();
+        }
+    }
 }
 

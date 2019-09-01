@@ -43,7 +43,7 @@ namespace GameEntity.Collectables {
 			}
 
 			void AddGemToPlayer() {
-				GameManager.CurrencyManager.Instance.ModifyMoneyValue(gemCount);
+				GameManager.CurrencyManager.Instance.ModifyGemValue(gemCount);
 			}
 
 			#endregion
