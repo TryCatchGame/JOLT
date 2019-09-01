@@ -93,10 +93,14 @@ namespace GameEntity.Player {
             } else if (collision.gameObject.CompareTag(paddleCollisionTags.EnemyTag)) {
                 DecreaseShieldLifeIfThisIsShieldPaddle();
 
-                // TODO: Score counting
+                IncreasePlayerScore();
             }
 
             #region Local_Function
+
+            void IncreasePlayerScore() {
+                GameManager.GameScoreManager.Instance.IncrementCurrentScore();
+            }
 
             bool TryGetCollectableFromCollision(out Collectable collectable) {
                 if (collision.gameObject.CompareTag(paddleCollisionTags.CollectableTag)) {

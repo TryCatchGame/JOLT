@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 1234632792}
   - component: {fileID: 1234632794}
   - component: {fileID: 1234632793}
+  - component: {fileID: 1234632795}
   m_Layer: 5
   m_Name: HighscoreText
   m_TagString: Untagged
@@ -673,6 +674,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234632791}
   m_CullTransparentMesh: 0
+--- !u!114 &1234632795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234632791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930e20b50c9790c41bf4c2a495ba317d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1234632793}
 --- !u!1 &1418380917
 GameObject:
   m_ObjectHideFlags: 0

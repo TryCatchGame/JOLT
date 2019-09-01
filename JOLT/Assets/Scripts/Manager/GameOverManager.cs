@@ -9,6 +9,10 @@ namespace GameManager {
 
     public class GameOverManager : Singleton<GameOverManager> {
 
+        internal delegate void OnGameOver();
+
+        internal OnGameOver onGameOverEvent;
+
         #region TransitionDisplay_Struct
 
         [System.Serializable]
@@ -41,6 +45,8 @@ namespace GameManager {
         private TransitionDisplayAnimation transitionDisplayAnimation;
 
         internal void TriggerGameOver() {
+            onGameOverEvent?.Invoke();
+
             DisableIngameMovements();
 
             UpdateGameOverMenuScores();
@@ -55,7 +61,7 @@ namespace GameManager {
             }
 
             void UpdateGameOverMenuScores() {
-                // TODO: Function name
+                GameScoreManager.Instance.UpdateGameOverMenuWithScores();
             }
 
             #endregion
@@ -66,6 +72,10 @@ namespace GameManager {
         /// </summary>
         public void TransitionToMainMenu() {
             transitionDisplayAnimation.StartTransition();
+        }
+
+        internal void SetGameOverMenuScoreTexts(int currentScore, int highScore, bool newHighScore = false) {
+            gameOverMenu.SetScoreTexts(currentScore, highScore, newHighScore);
         }
     }
 }

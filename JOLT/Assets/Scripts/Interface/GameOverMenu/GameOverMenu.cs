@@ -3,8 +3,6 @@ using UnityEngine.UI;
 
 using MyBox;
 
-using GameAnimationBehaviour;
-
 namespace GameInterface {
     [RequireComponent(typeof(Animator))]
     public class GameOverMenu : MonoBehaviour {
@@ -28,7 +26,6 @@ namespace GameInterface {
         #endregion
 
         #region ScoreTexts_Struct
-
         [System.Serializable]
         private struct ScoreTexts {
             [SerializeField, Tooltip("The high score text"), MustBeAssigned]
