@@ -55,7 +55,6 @@ namespace GameEntity.Player {
         }
 
         private void OnCollisionEnter2D(Collision2D collision) {
-
             if (CollisionHasTag(playerCollisionTags.CollectableTag)) {
                 collision.gameObject.GetComponent<Collectable>().Destroy();
             } else if (CollisionHasTag(playerCollisionTags.EnemyTag)) {
@@ -73,8 +72,13 @@ namespace GameEntity.Player {
 
         #region Utils
 
+        // NOTE: Refactor to 1 function?
         internal void DisablePaddleMovement() {
             corePaddles.SetCanMove(false);
+        }
+
+        internal void EnablePaddleMovement() {
+            corePaddles.SetCanMove(true);
         }
 
         private void TriggerGameOver() {
