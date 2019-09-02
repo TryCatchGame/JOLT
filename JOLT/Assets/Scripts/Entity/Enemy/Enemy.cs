@@ -5,6 +5,8 @@ using MyBox;
 using GameEntity.Player;
 
 namespace GameEntity.Enemy {
+    [RequireTag("Enemy")]
+    [RequireLayer("Enemy")]
     [RequireComponent(typeof(Collider2D), typeof(BorderCollisionChecker))]
     public abstract class Enemy : MonoBehaviour {
         protected enum CollisionType {

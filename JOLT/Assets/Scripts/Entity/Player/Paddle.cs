@@ -3,12 +3,11 @@
 using MyBox;
 
 using GameEntity.Collectables;
-
 namespace GameEntity.Player {
-
+    [RequireLayer("Player")]
+    [RequireTag("Player")]
     [RequireComponent(typeof(Collider2D), typeof(Animator), typeof(SpriteRenderer))]
     public class Paddle : MonoBehaviour {
-
         private enum PaddleRotationDirection {
             ANTI_CLOCKWISE = -1,
             NONE = 0,
@@ -87,7 +86,6 @@ namespace GameEntity.Player {
         }
 
         private void OnCollisionEnter2D(Collision2D collision) {
-
             if (TryGetCollectableFromCollision(out Collectable collidedCollectable)) {
                 collidedCollectable.Collect();
             } else if (collision.gameObject.CompareTag(paddleCollisionTags.EnemyTag)) {
@@ -117,12 +115,10 @@ namespace GameEntity.Player {
                     (this as ShieldPaddle).DecreaseShieldLife();
                 }
             }
-
             #endregion
         }
 
         #region Utils
-
         internal void RotatePaddleAntiClockwise() {
             currentRotationDirection = PaddleRotationDirection.ANTI_CLOCKWISE;
         }

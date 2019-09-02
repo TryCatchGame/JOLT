@@ -5,6 +5,8 @@ using MyBox;
 using GameEntity.Player;
 
 namespace GameEntity.Collectables {
+    [RequireTag("Collectables")]
+    [RequireLayer("Collectables")]
 	public abstract class Collectable : MonoBehaviour {
 		[SerializeField, Tooltip("The move speed of this collectable"), PositiveValueOnly]
 		private float moveSpeed;

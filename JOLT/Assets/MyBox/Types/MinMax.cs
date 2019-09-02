@@ -1,4 +1,10 @@
-﻿using System;
+﻿// ---------------------------------------------------------------------------- 
+// Author: Kaynn, Yeo Wen Qin
+// https://github.com/Kaynn-Cahya
+// Date:   03/08/2019
+// ----------------------------------------------------------------------------
+
+using System;
 using UnityEngine;
 
 namespace MyBox
@@ -92,6 +98,7 @@ namespace MyBox.Internal
 		{
 			EditorGUI.BeginProperty(position, label, property);
 			position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
+			EditorGUI.indentLevel = 0; // PropertyDrawer Indent fix for nested inspectors
 
 			var minProp = property.FindPropertyRelative("Min");
 			var maxProp = property.FindPropertyRelative("Max");
@@ -131,6 +138,7 @@ namespace MyBox.Internal
 		{
 			EditorGUI.BeginProperty(position, label, property);
 			position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
+			EditorGUI.indentLevel = 0; // PropertyDrawer Indent fix for nested inspectors
 
 			var minProp = property.FindPropertyRelative("Min");
 			var maxProp = property.FindPropertyRelative("Max");

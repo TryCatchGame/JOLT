@@ -21,6 +21,7 @@ namespace MyBox
 			var position = camera.WorldToViewportPoint(point);
 			return position.x > 0 && position.y > 0;
 		}
+		
 
 		public static T GetOrAddComponent<T>(this GameObject gameObject) where T : Component
 		{

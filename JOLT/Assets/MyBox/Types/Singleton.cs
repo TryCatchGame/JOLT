@@ -12,7 +12,7 @@ namespace MyBox
 			{
 				if (_instance == null)
 				{
-					_instance = FindObjectOfType<T>();
+					_instance = Object.FindObjectOfType<T>();
 					if (_instance == null)
 					{
 						Debug.LogError("Singleton Instance caused: " + typeof(T).Name + " not found on scene");
