@@ -1,13 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 using MyBox;
 namespace GameManager {
-    public class SettingsMenuManager : MonoBehaviour {
+    public class SettingsMenuManager : Singleton<SettingsMenuManager> {
         #region SettingsMenuButtons_Struct
         [System.Serializable]
-        private struct SettingsMenuButton {
+        private struct SettingsMenuButtons {
+            [SerializeField, Tooltip("The button that is used to show the settings menu"), MustBeAssigned]
+            private Button showSettingsButton;
+
+            [SerializeField, Tooltip("The buttons in the settings menu"), MustBeAssigned]
+            private Button[] settingMenuButtons;
+
+            internal void SetSettingMenuButtonsInteractivity(bool interactable) {
+                foreach (Button button in settingMenuButtons) {
+                    button.interactable = interactable;
+                }
+            }
         }
         #endregion
 
@@ -39,6 +49,9 @@ namespace GameManager {
             [SerializeField, Tooltip("The respective animation for the settings menu"), MustBeAssigned]
             private SettingsMenuAnimator animator;
 
+            [SerializeField, Tooltip("The respective buttons for the settings menu"), MustBeAssigned]
+            private SettingsMenuButtons buttons;
+
             internal void PlayHideSettingsAnimation() {
                 animator.PlayHideAnimation();
             }
@@ -46,6 +59,45 @@ namespace GameManager {
             internal void PlayShowSettingsAnimation() {
                 animator.PlayShowAnimation();
             }
+
+            internal void SetButtonsInteractivity(bool interactable) {
+                buttons.SetSettingMenuButtonsInteractivity(interactable); ;
+            }
+        }
+        #endregion
+
+        [SerializeField, Tooltip("The setting menu in the scene"), MustBeAssigned]
+        private SettingsMenu settingsMenu;
+
+        private bool showingSettingsMenu;
+
+        private void Awake() {
+            showingSettingsMenu = false;
+        }
+
+        public void EnableSettingsButtonInteractivity() {
+            // See 'GameAnimationBehaviour.SettingsMenu.EnableSettingsButtonOnStateExit'
+            settingsMenu.SetButtonsInteractivity(true);
+        }
+
+        public void ToggleSettingsMenu() {
+            if (showingSettingsMenu) {
+                HideSettingsMenu();
+            } else {
+                ShowSettingsMenu();
+            }
+
+            showingSettingsMenu = !showingSettingsMenu;
+        }
+
+        #region Utils
+        private void ShowSettingsMenu() {
+            settingsMenu.PlayShowSettingsAnimation();
+        }
+
+        private void HideSettingsMenu() {
+            settingsMenu.SetButtonsInteractivity(false);
+            settingsMenu.PlayHideSettingsAnimation();
         }
         #endregion
     }
