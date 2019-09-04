@@ -3,33 +3,54 @@
 using TMPro;
 
 using MyBox;
-
 namespace GameManager {
     public class GameScoreManager : Singleton<GameScoreManager> {
-        #region GameScoreDisplay_Struct
+        #region GameScoreTexts_Struct
         [System.Serializable]
-        private struct GameScoreDisplay {
-            [SerializeField, Tooltip("The text to show current score that the player has"), MustBeAssigned]
-            private TextMeshProUGUI currentScoreText;
+        private struct GameScoreText {
+            [SerializeField, Tooltip("The text"), MustBeAssigned]
+            private TextMeshProUGUI text;
 
-            [SerializeField, Tooltip("The text to show the highscore"), MustBeAssigned]
-            private TextMeshProUGUI highScoreText;
+            [SerializeField, Tooltip("The animator for the text"), MustBeAssigned]
+            private Animator animator;
 
-            internal void SetScoreDisplaysText(string currentScoreDisplay, string highScoreDisplay = "") {
-                currentScoreText.text = currentScoreDisplay;
+            [SerializeField, Tooltip("The animation to play when the text is changed"), MustBeAssigned]
+            private AnimationClip textChangedAnimation;
 
-                if (!string.IsNullOrEmpty(highScoreDisplay)) {
-                    highScoreText.text = highScoreDisplay;
-                }
+            internal void ChangeText(string newContent) {
+                text.text = newContent;
+                animator.Play(textChangedAnimation.name, -1, 0f);
             }
 
-            internal void HideScoreTexts() {
-                currentScoreText.gameObject.SetActive(false);
-                highScoreText.gameObject.SetActive(false);
+            internal void SetActiveText(bool activate) {
+                text.gameObject.SetActive(activate);
             }
         }
         #endregion
 
+        #region GameScoreDisplay_Struct
+        [System.Serializable]
+        private struct GameScoreDisplay {
+            [SerializeField, Tooltip("The text to show current score that the player has"), MustBeAssigned]
+            private GameScoreText currentScoreText;
+
+            [SerializeField, Tooltip("The text to show the highscore"), MustBeAssigned]
+            private GameScoreText highScoreText;
+
+            internal void SetScoreDisplaysText(string currentScoreDisplay, string highScoreDisplay = "") {
+                currentScoreText.ChangeText(currentScoreDisplay);
+
+                if (!string.IsNullOrEmpty(highScoreDisplay)) {
+                    highScoreText.ChangeText(highScoreDisplay);
+                }
+            }
+
+            internal void HideScoreTexts() {
+                currentScoreText.SetActiveText(false);
+                highScoreText.SetActiveText(false);
+            }
+        }
+        #endregion
         [SerializeField, Tooltip("The respective display texts in game"), MustBeAssigned]
         private GameScoreDisplay gameScoreDisplay;
 
