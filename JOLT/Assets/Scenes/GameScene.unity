@@ -1609,7 +1609,7 @@ MonoBehaviour:
   paddleEnabledAnimation: {fileID: 7400000, guid: 51061e37e38c8f8418d38b581d26c889,
     type: 2}
   targetCore: {fileID: 1418268775}
-  paddleRotationSpeed: 300
+  paddleRotationSpeed: 310
 --- !u!60 &1019283145
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   paddleEnabledAnimation: {fileID: 7400000, guid: 51061e37e38c8f8418d38b581d26c889,
     type: 2}
   targetCore: {fileID: 1418268775}
-  paddleRotationSpeed: 300
+  paddleRotationSpeed: 310
 --- !u!60 &1045946187
 PolygonCollider2D:
   m_ObjectHideFlags: 0

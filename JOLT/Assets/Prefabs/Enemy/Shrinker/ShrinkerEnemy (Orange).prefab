@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -6047632986606808322, guid: 9d0036b1a644bf74aa6918ff707222ca,
     type: 3}
-  m_Color: {r: 0.8490566, g: 0.5034961, b: 0.09211465, a: 1}
+  m_Color: {r: 0.8867924, g: 0.87225354, b: 0.13803846, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -127,5 +127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borderCollisionChecker: {fileID: 0}
   moveSpeed: 8
-  shrinkedEnemy: {fileID: 4276553171541778481, guid: fd348db78937a2b4eae8f92d2b64e2ea,
+  effectOnWallBounce: 1
+  wallBounceEffect: {fileID: 6072890784684583988, guid: 3c5e9f654b9c52048a68156fab9438cf,
     type: 3}
+  shrinkedEnemy: {fileID: 1433783798784909894, guid: a6b3564be0cf5744fb791d6c5e1e682f,
+    type: 3}
+  spriteRenderer: {fileID: 0}

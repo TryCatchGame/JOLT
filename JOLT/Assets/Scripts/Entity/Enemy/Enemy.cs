@@ -3,6 +3,7 @@
 using MyBox;
 
 using GameEntity.Player;
+using GameParticle.Enemy;
 
 namespace GameEntity.Enemy {
     [RequireTag("Enemy")]
@@ -21,6 +22,13 @@ namespace GameEntity.Enemy {
         [Separator("Enemy Movement")]
         [SerializeField, Tooltip("The move speed of the enemy"), PositiveValueOnly]
         private float moveSpeed;
+
+        [Separator("Wall Bounce properties")]
+        [SerializeField, Tooltip("True if this enemy creates an effect when bouncing off the walls")]
+        private bool effectOnWallBounce;
+
+        [SerializeField, Tooltip("The effect it creates"), ConditionalField(nameof(effectOnWallBounce), false, true), MustBeAssigned]
+        private EnemyBounceEffect wallBounceEffect;
 
         private string playerTag;
 
@@ -79,7 +87,14 @@ namespace GameEntity.Enemy {
                     IsMovingToPlayerTarget = true;
                     OnCollisionEvent(CollisionType.SCREEN_BORDER);
 
-                    CreateCollisionEffect();
+                    CreateWallCollisionEffect();
+                }
+            }
+
+            void CreateWallCollisionEffect() {
+                if (effectOnWallBounce) {
+                    var newWallBounceEffect = Instantiate(wallBounceEffect);
+                    newWallBounceEffect.transform.position = transform.position;
                 }
             }
 
@@ -96,7 +111,6 @@ namespace GameEntity.Enemy {
             #region Local_Function
 
             void TriggerCollisionDeath() {
-                CreateCollisionEffect();
                 CreateDeathEffect();
 
                 Destroy(gameObject);
@@ -112,11 +126,6 @@ namespace GameEntity.Enemy {
         protected abstract void OnCollisionEvent(CollisionType collisionType);
 
         #region Util
-
-        private void CreateCollisionEffect() {
-            // TODO: Some effects on *general* collision
-            // NOTE: This function should suit for all types of collision; No more, no less.
-        }
 
         internal void SetPlayerTarget(Core target) {
             PlayerTarget = target;

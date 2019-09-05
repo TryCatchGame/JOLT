@@ -128,6 +128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borderCollisionChecker: {fileID: 0}
   moveSpeed: 7.5
+  effectOnWallBounce: 1
+  wallBounceEffect: {fileID: 4434772008799882157, guid: 2d6ff201dd7502245a5dafc6cd4fec30,
+    type: 3}
   enemyPrefabToSplitInto: {fileID: 2639553808950090464, guid: ea5b87dbfa52e9d4b94eb7390b502011,
     type: 3}
   splitCount: 2

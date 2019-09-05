@@ -3,7 +3,7 @@
 using MyBox;
 namespace GameParticle.Enemy {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class EnemyBounceParticle : MonoBehaviour {
+    public class EnemyBounceEffect : MonoBehaviour {
         [Separator("Auto Assign")]
         [SerializeField, AutoProperty]
         private SpriteRenderer spriteRenderer;
