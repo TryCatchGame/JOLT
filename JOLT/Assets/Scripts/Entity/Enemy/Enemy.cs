@@ -4,6 +4,7 @@ using MyBox;
 
 using GameEntity.Player;
 using GameParticle.Enemy;
+using GameUtility;
 
 namespace GameEntity.Enemy {
 	[RequireTag("Enemy")]
@@ -97,7 +98,6 @@ namespace GameEntity.Enemy {
 					newWallBounceEffect.transform.position = transform.position;
 				}
 			}
-
 			#endregion
 		}
 
@@ -106,7 +106,6 @@ namespace GameEntity.Enemy {
 				OnCollisionEvent(CollisionType.PLAYER);
 
 				TriggerCollisionDeath();
-				CameraShake.Instance.TriggerShake();
 			}
 
 			#region Local_Function
@@ -118,8 +117,9 @@ namespace GameEntity.Enemy {
 			}
 
 			void CreateDeathEffect() {
-				// TODO: Some visual effects on death.
-			}
+                CameraShake.Instance.TriggerShake();
+                // TODO: Some particle effects on death.
+            }
 
 			#endregion
 		}

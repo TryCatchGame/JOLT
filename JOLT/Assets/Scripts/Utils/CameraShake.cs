@@ -1,36 +1,39 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 using MyBox;
 
-public class CameraShake : Singleton<CameraShake> {
-	[Header("Shake properties")]
-	[SerializeField, Tooltip("How long should the shake last for?")] private float shakeDuration;
-	[SerializeField, Tooltip("How strong is the shake?")] private float shakeAmount;
+namespace GameUtility {
+    public class CameraShake : Singleton<CameraShake> {
+        [Separator("Shake properties")]
+        [SerializeField, Tooltip("How long should the shake last for?"), PositiveValueOnly]
+        private float shakeDuration;
 
-	private Vector3 currentPos;
+        [SerializeField, Tooltip("How strong is the shake?"), PositiveValueOnly]
+        private float shakeAmount;
 
-	public void TriggerShake() {
-		StartCoroutine(Shake());
-	}
+        private Vector3 startingPosition;
 
-	private IEnumerator Shake() {
-		// Initialize a timer.
-		float currentShakeDuration = shakeDuration;
+        public void TriggerShake() {
+            startingPosition = transform.localPosition;
+            StartCoroutine(Shake());
+        }
 
-		// Save the position before shaking.
-		currentPos = transform.localPosition;
+        private IEnumerator Shake() {
+            float shakeTimer = shakeDuration;
+            while (shakeTimer > 0) {
+                ShakeCameraRandomly();
+                yield return new WaitForEndOfFrame();
+            }
+            transform.localPosition = startingPosition;
 
-		while(currentShakeDuration > 0) {
-			// Randomly move the camera around.
-			transform.localPosition = currentPos + Random.insideUnitSphere * shakeAmount;
+            #region Local_Function
+            void ShakeCameraRandomly() {
+                transform.localPosition = startingPosition + Random.insideUnitSphere * shakeAmount;
 
-			// Start counting down before stopping the shake.
-			currentShakeDuration -= Time.unscaledDeltaTime;
-
-			yield return new WaitForEndOfFrame();
-		}
-		// Move the camera back to its previous position.
-		transform.localPosition = currentPos;
-	}
+                shakeTimer -= Time.unscaledDeltaTime;
+            }
+            #endregion
+        }
+    }
 }

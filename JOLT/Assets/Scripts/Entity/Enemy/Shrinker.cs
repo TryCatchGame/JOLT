@@ -14,7 +14,6 @@ namespace GameEntity.Enemy {
 		protected override void OnCollisionEvent(CollisionType collisionType) {
 			if(collisionType == CollisionType.PLAYER) {
 				ShrinkEnemy();
-				CameraShake.Instance.TriggerShake();
 			}
 		}
 
