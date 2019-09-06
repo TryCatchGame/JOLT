@@ -30,7 +30,6 @@ public class CameraShake : Singleton<CameraShake> {
 
 			yield return new WaitForEndOfFrame();
 		}
-
 		// Move the camera back to its previous position.
 		transform.localPosition = currentPos;
 	}
