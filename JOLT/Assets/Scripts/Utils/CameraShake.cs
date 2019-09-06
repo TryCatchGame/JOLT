@@ -14,8 +14,11 @@ namespace GameUtility {
 
         private Vector3 startingPosition;
 
-        public void TriggerShake() {
+        private void Awake() {
             startingPosition = transform.localPosition;
+        }
+
+        public void TriggerShake() {
             StartCoroutine(Shake());
         }
 
