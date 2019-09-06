@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288024172821621929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.81, y: 6.6, z: 0}
+  m_LocalPosition: {x: -1.48, y: 2.274, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -188,39 +188,39 @@ TrailRenderer:
   m_SortingLayerID: -1982382227
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Time: 0.5
+  m_Time: 0.8
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 1.6
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -0.93666655
+        outSlope: -0.93666655
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.16106233
       - serializedVersion: 3
-        time: 0.9978586
+        time: 0.994288
         value: 0
-        inSlope: -0.24704641
-        outSlope: -0.24704641
+        inSlope: -0.88375354
+        outSlope: -0.88375354
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.113733895
+        inWeight: 0.15173836
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.19215688, g: 0.854902, b: 1, a: 0.8235294}
-      key1: {r: 0.18823531, g: 0.82745105, b: 0.95294124, a: 0.6862745}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.19215688, g: 0.854902, b: 1, a: 0.78431374}
+      key1: {r: 0.18823531, g: 0.82745105, b: 0.95294124, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.6862745}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -234,9 +234,9 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 425
       atime1: 65535
-      atime2: 0
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0

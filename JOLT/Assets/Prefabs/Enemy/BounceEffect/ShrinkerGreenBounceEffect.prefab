@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3067023818317969990}
   - component: {fileID: 3067023818317969991}
   - component: {fileID: 3067023818317970009}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShrinkerGreenBounceEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
