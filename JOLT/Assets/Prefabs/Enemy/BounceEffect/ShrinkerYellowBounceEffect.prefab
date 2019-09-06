@@ -96,4 +96,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6072890784684583978}
   startingAlphaScale: 0.5
-  stayDuration: 1.25
+  stayDuration: 1
