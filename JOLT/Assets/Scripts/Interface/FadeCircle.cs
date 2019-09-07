@@ -38,6 +38,9 @@ namespace GameInterface {
         [SerializeField, Tooltip("Where to place this fade circle at the start"), MustBeAssigned]
         private PlacementPoint startPlacementPoint;
 
+        [SerializeField, Tooltip("True to fade out on start")]
+        private bool fadeOutOnStart;
+
         private void Awake() {
             PlaceFadeCircleAtPlacementPosition();
 
@@ -48,6 +51,12 @@ namespace GameInterface {
                 transform.position = placementPosition;
             }
             #endregion
+        }
+
+        private void Start() {
+            if (fadeOutOnStart) {
+                FadeOutCircle();
+            }
         }
 
         public void FadeInCircle() {

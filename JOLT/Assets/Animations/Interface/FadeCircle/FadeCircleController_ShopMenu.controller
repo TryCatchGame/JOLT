@@ -62,9 +62,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToTransitionTo:
-    Scene: {fileID: 102900000, guid: 444b2f79a6b7cff4e8e2c3f81293263d, type: 3}
-    SceneName: ShopMenu
-    sceneIndex: 2
+    Scene: {fileID: 102900000, guid: d7a4d600b40cf104186b6f8cae198c42, type: 3}
+    SceneName: MainMenuScene
+    sceneIndex: 0
     sceneEnabled: 1
 --- !u!1101 &-6836687542276288366
 AnimatorStateTransition:
@@ -179,7 +179,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FadeCircleController
+  m_Name: FadeCircleController_ShopMenu
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
