@@ -34,7 +34,7 @@ namespace GameInterface.MainMenu {
             CanTransition = true;
         }
 
-        void Update() {
+        private void Update() {
             if (!CanTransition) { return; }
 
             if (TappedOnNonInterface()) {
@@ -70,7 +70,6 @@ namespace GameInterface.MainMenu {
                         return true;
                     }
                 }
-
                 return false;
             }
 
@@ -86,6 +85,14 @@ namespace GameInterface.MainMenu {
                 return currentEventSystem.IsPointerOverGameObject();
             }
             #endregion
+        }
+
+        public void DisallowTransition() {
+            CanTransition = false;
+        }
+
+        internal void AllowTransition() {
+            CanTransition = true;
         }
     }
 }

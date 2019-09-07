@@ -70,7 +70,7 @@ namespace GameInterface {
                 case PlacementPoint.TOP_LEFT:
                     return new Vector2(0, 1);
                 case PlacementPoint.MIDDLE_LEFT:
-                    return new Vector2(1, 0.5f);
+                    return new Vector2(0, 0.5f);
                 case PlacementPoint.MIDDLE_RIGHT:
                     return new Vector2(1, 0.5f);
             }
