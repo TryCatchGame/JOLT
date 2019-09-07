@@ -8,7 +8,7 @@ namespace GameAnimationBehaviour {
 
     public class TransitionToSceneOnStateExitBehaviour : StateMachineBehaviour {
 
-        [SerializeField, Tooltip("The scene to transition to after this main menu canvas fades out"), MustBeAssigned]
+        [SerializeField, Tooltip("The scene to transition to after this state exits"), MustBeAssigned]
         private SceneReference sceneToTransitionTo;
 
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
