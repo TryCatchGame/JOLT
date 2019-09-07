@@ -4,12 +4,15 @@ using UnityEngine.EventSystems;
 using MyBox;
 
 using GameManager;
-
 namespace GameInterface.MainMenu {
     /// <summary>
     /// Handles the 'tap anywhere to play' interaction for the player.
     /// </summary>
     public class TapToPlayInteraction : Singleton<TapToPlayInteraction> {
+        internal delegate void OnTappedToPlay();
+
+        internal OnTappedToPlay onTappedToPlayEvent;
+
         [SerializeField, Tooltip("The respective canvas to fade out when the player taps to play."), MustBeAssigned]
         private FadeOutCanvas[] canvasesToFadeOut;
 
@@ -31,16 +34,25 @@ namespace GameInterface.MainMenu {
             CanTransition = true;
         }
 
-        // Update is called once per frame
         void Update() {
             if (!CanTransition) { return; }
 
             if (TappedOnNonInterface()) {
-                CanTransition = false;
-                DoFadeOutTransitionEffect();
+                if (!TryHideSettingsMenuIfShowing()) {
+                    CanTransition = false;
+                    DoFadeOutTransitionEffect();
+                    onTappedToPlayEvent?.Invoke();
+                }
             }
 
             #region Local_Function
+            bool TryHideSettingsMenuIfShowing() {
+                if (SettingsMenuManager.Instance.ShowingSettingsMenu) {
+                    SettingsMenuManager.Instance.ToggleSettingsMenu();
+                    return true;
+                }
+                return false;
+            }
 
             void DoFadeOutTransitionEffect() {
                 loadingCircle.ShowLoadingCircle();
@@ -73,7 +85,6 @@ namespace GameInterface.MainMenu {
             bool PointerOverAnyInterface() {
                 return currentEventSystem.IsPointerOverGameObject();
             }
-
             #endregion
         }
     }

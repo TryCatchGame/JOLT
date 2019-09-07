@@ -2,6 +2,9 @@
 using UnityEngine.UI;
 
 using MyBox;
+
+using GameInterface;
+using GameInterface.MainMenu;
 namespace GameManager {
     public class SettingsMenuManager : Singleton<SettingsMenuManager> {
         #region SettingsMenuButtons_Struct
@@ -49,8 +52,13 @@ namespace GameManager {
             [SerializeField, Tooltip("The respective animation for the settings menu"), MustBeAssigned]
             private SettingsMenuAnimator animator;
 
+            [Separator()]
             [SerializeField, Tooltip("The respective buttons for the settings menu"), MustBeAssigned]
             private SettingsMenuButtons buttons;
+
+            [Separator()]
+            [SerializeField, Tooltip("The fade out canvas for this settings menu"), MustBeAssigned]
+            private FadeOutCanvas fadeOutCanvas;
 
             internal void PlayHideSettingsAnimation() {
                 animator.PlayHideAnimation();
@@ -63,16 +71,21 @@ namespace GameManager {
             internal void SetButtonsInteractivity(bool interactable) {
                 buttons.SetSettingMenuButtonsInteractivity(interactable); ;
             }
+
+            internal void PlayFadeOutAnimation() {
+                fadeOutCanvas.FadeOut();
+            }
         }
         #endregion
 
         [SerializeField, Tooltip("The setting menu in the scene"), MustBeAssigned]
         private SettingsMenu settingsMenu;
 
-        private bool showingSettingsMenu;
+        internal bool ShowingSettingsMenu { get; private set; }
 
         private void Awake() {
-            showingSettingsMenu = false;
+            ShowingSettingsMenu = false;
+            TapToPlayInteraction.Instance.onTappedToPlayEvent += FadeOutSettingsMenu;
         }
 
         public void EnableSettingsButtonInteractivity() {
@@ -81,13 +94,12 @@ namespace GameManager {
         }
 
         public void ToggleSettingsMenu() {
-            if (showingSettingsMenu) {
+            if (ShowingSettingsMenu) {
                 HideSettingsMenu();
             } else {
                 ShowSettingsMenu();
             }
-
-            showingSettingsMenu = !showingSettingsMenu;
+            ShowingSettingsMenu = !ShowingSettingsMenu;
         }
 
         #region Utils
@@ -98,6 +110,10 @@ namespace GameManager {
         private void HideSettingsMenu() {
             settingsMenu.SetButtonsInteractivity(false);
             settingsMenu.PlayHideSettingsAnimation();
+        }
+
+        private void FadeOutSettingsMenu() {
+            settingsMenu.PlayFadeOutAnimation();
         }
         #endregion
     }
