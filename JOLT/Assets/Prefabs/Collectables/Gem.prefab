@@ -120,6 +120,11 @@ MonoBehaviour:
   moveSpeed: 5
   givesGem: 1
   gemCount: 2
+  collectableEffects:
+    collectedEffect: {fileID: 2084544600698866528, guid: d97b8dedcd375424fbbb5e44fa2ad137,
+      type: 3}
+    destroyedEffect: {fileID: 3981669959031723853, guid: 88faad767411b1749975cdc62b1e6b39,
+      type: 3}
 --- !u!61 &4069700865385998178
 BoxCollider2D:
   m_ObjectHideFlags: 0

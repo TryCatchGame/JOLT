@@ -8,7 +8,26 @@ namespace GameEntity.Collectables {
     [RequireTag("Collectables")]
     [RequireLayer("Collectables")]
 	public abstract class Collectable : MonoBehaviour {
-		[SerializeField, Tooltip("The move speed of this collectable"), PositiveValueOnly]
+        #region CollectableEffects_STRUCT
+        [System.Serializable]
+        private struct CollectableEffects {
+            [SerializeField, Tooltip("The prefab for the effect to show when the collectable is collected"), MustBeAssigned]
+            private GameObject collectedEffect;
+
+            [SerializeField, Tooltip("The prefab for the effect to show when the collectable is destroyed"), MustBeAssigned]
+            private GameObject destroyedEffect;
+
+            internal GameObject CreateCollectedEffect() {
+                return Instantiate(collectedEffect);
+            }
+
+            internal GameObject CreateDestroyedEffect() {
+                return Instantiate(destroyedEffect);
+            }
+        }
+        #endregion
+
+        [SerializeField, Tooltip("The move speed of this collectable"), PositiveValueOnly]
 		private float moveSpeed;
 
 		[SerializeField, Tooltip("True if this gives a gem to the player")]
@@ -17,7 +36,11 @@ namespace GameEntity.Collectables {
 		[ConditionalField(nameof(givesGem), false, true), SerializeField, Tooltip("How many gems this gives the player"), PositiveValueOnly]
 		private int gemCount;
 
-		protected Core PlayerCore { get; private set; }
+        [Separator()]
+        [SerializeField, Tooltip("The respective effects to play for the collectable"), MustBeAssigned]
+        private CollectableEffects collectableEffects;
+
+        protected Core PlayerCore { get; private set; }
 
 		private void Update() {
 			transform.position = Vector2.MoveTowards(transform.position, PlayerCore.transform.position, moveSpeed * Time.deltaTime);
@@ -39,15 +62,14 @@ namespace GameEntity.Collectables {
 			Destroy(gameObject);
 
 			#region Local_Function
-
 			void CreateCollectedEffect() {
-				// TODO: Do effect when this is collected;
-			}
+                var collectedEffect = collectableEffects.CreateCollectedEffect();
+                collectedEffect.transform.position = transform.position;
+            }
 
 			void AddGemToPlayer() {
 				GameManager.CurrencyManager.Instance.ModifyGemValue(gemCount);
 			}
-
 			#endregion
 		}
 
@@ -58,11 +80,10 @@ namespace GameEntity.Collectables {
 			Destroy(gameObject);
 
 			#region Local_Function
-
 			void CreateDestroyedEffect() {
-				// TODO: Create effect when this is destroyed. (Not collected)
-			}
-
+                var destroyedEffect = collectableEffects.CreateDestroyedEffect();
+                destroyedEffect.transform.position = transform.position;
+            }
 			#endregion
 		}
 

@@ -146,6 +146,11 @@ MonoBehaviour:
   moveSpeed: 5
   givesGem: 1
   gemCount: 1
+  collectableEffects:
+    collectedEffect: {fileID: 2084544600698866528, guid: d97b8dedcd375424fbbb5e44fa2ad137,
+      type: 3}
+    destroyedEffect: {fileID: 3981669959031723853, guid: 88faad767411b1749975cdc62b1e6b39,
+      type: 3}
 --- !u!199 &1451876030779048574
 ParticleSystemRenderer:
   serializedVersion: 6
