@@ -31,6 +31,13 @@ namespace GameEntity.Enemy {
 		[SerializeField, Tooltip("The effect it creates"), ConditionalField(nameof(effectOnWallBounce), false, true), MustBeAssigned]
 		private EnemyBounceEffect wallBounceEffect;
 
+        [Separator("Death effect properties")]
+        [SerializeField, Tooltip("True if this enemy creates an effect when dead")]
+        private bool effectOnDeath;
+
+        [SerializeField, Tooltip("The prefab of the effect to create when this enemy is dead"), ConditionalField(nameof(effectOnDeath), false, true), MustBeAssigned]
+        private GameObject deathEffectPrefab;
+
 		private string playerTag;
 
 		protected Core PlayerTarget {
@@ -118,7 +125,10 @@ namespace GameEntity.Enemy {
 
 			void CreateDeathEffect() {
                 CameraShake.Instance.TriggerShake();
-                // TODO: Some particle effects on death.
+                if (effectOnDeath) {
+                    var deathEffect = Instantiate(deathEffectPrefab);
+                    deathEffect.transform.position = transform.position;
+                }
             }
 
 			#endregion

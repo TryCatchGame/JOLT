@@ -131,6 +131,9 @@ MonoBehaviour:
   effectOnWallBounce: 0
   wallBounceEffect: {fileID: 6072890784684583988, guid: 3c5e9f654b9c52048a68156fab9438cf,
     type: 3}
+  effectOnDeath: 1
+  deathEffectPrefab: {fileID: 1962641290193318, guid: 596f1c482c6ee5b49bc265778b3216f5,
+    type: 3}
   shrinkedEnemy: {fileID: 4945137431240801516, guid: 75b90a645c350c74daf015824186a38d,
     type: 3}
   spriteRenderer: {fileID: 7662016088140230481}

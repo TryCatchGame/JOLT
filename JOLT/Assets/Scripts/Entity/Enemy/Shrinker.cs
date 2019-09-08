@@ -5,6 +5,7 @@ using MyBox;
 namespace GameEntity.Enemy {
 
 	public class Shrinker : Enemy {
+        [Separator("Shrinker Enemy Properties")]
 		[SerializeField, Tooltip("The enemy to shrink to"), MustBeAssigned]
 		private Enemy shrinkedEnemy;
 

@@ -132,6 +132,9 @@ MonoBehaviour:
   effectOnWallBounce: 1
   wallBounceEffect: {fileID: 4434772008799882157, guid: 2d6ff201dd7502245a5dafc6cd4fec30,
     type: 3}
+  effectOnDeath: 1
+  deathEffectPrefab: {fileID: 1962641290193318, guid: afc6bdef3d215ae468fd7c7afa1b41b2,
+    type: 3}
 --- !u!114 &-2522199243036920317
 MonoBehaviour:
   m_ObjectHideFlags: 0

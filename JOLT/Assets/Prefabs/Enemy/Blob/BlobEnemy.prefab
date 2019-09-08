@@ -131,6 +131,9 @@ MonoBehaviour:
   effectOnWallBounce: 1
   wallBounceEffect: {fileID: 3067023818317970009, guid: 0b9fff9ec3d003447b99c0bb79c52308,
     type: 3}
+  effectOnDeath: 1
+  deathEffectPrefab: {fileID: 1962641290193318, guid: 25a56ac107489f645968fc0562565dd5,
+    type: 3}
 --- !u!96 &599516754
 TrailRenderer:
   serializedVersion: 2

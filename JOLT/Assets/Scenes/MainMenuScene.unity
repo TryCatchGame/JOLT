@@ -177,7 +177,7 @@ MonoBehaviour:
       - {fileID: 1268999969}
       - {fileID: 1622655688}
       - {fileID: 351134195}
-    fadeOutCanvas: {fileID: 0}
+    fadeOutCanvas: {fileID: 1325641014}
 --- !u!1 &189388583
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +556,7 @@ MonoBehaviour:
     fadeInAnimation: {fileID: 7400000, guid: d5730e517d3172e4388d8096b9def756, type: 2}
     fadeOutAnimation: {fileID: 7400000, guid: 9ed1780605deb294a9a87aef064d2017, type: 2}
   startPlacementPoint: 4
+  fadeOutOnStart: 0
 --- !u!95 &486478751
 Animator:
   serializedVersion: 3
