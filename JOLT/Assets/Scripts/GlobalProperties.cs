@@ -17,4 +17,13 @@ internal static class GlobalProperties {
             PlayerPrefs.SetInt("HighScore", value);
         }
     }
+
+    internal static string CurrentlyUsingSkinName_Local {
+        get {
+            return PlayerPrefs.GetString("UsingSkin", string.Empty);
+        }
+        set {
+            PlayerPrefs.SetString("UsingSkin", value);
+        }
+    }
 }

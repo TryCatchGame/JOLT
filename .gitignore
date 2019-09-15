@@ -1,3 +1,6 @@
+# Save Files
+*.dat
+
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/

@@ -51,6 +51,8 @@ namespace GameManager.CoreSkin {
             }
 
             SkinDataCollection CreateTemplateCollection() {
+                GlobalProperties.CurrentlyUsingSkinName_Local = defaultCoreSprite.name;
+
                 List<CoreSkinData> templateDatas = new List<CoreSkinData> {
                     new CoreSkinData(defaultCoreSprite.name, ShopItemState.IN_USE)
                 };

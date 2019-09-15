@@ -3,9 +3,12 @@ using UnityEngine.UI;
 using TMPro;
 
 using MyBox;
+
+using GameManager;
 namespace GameInterface.ShopMenu {
     [RequireComponent(typeof(Image))]
     public class ShopItem : MonoBehaviour {
+
         private static readonly Color OWNED_COLOR = Color.yellow;
         private static readonly Color NORMAL_COLOR = Color.white;
         private static readonly Color IN_USE_COLOR = Color.cyan;
@@ -20,13 +23,32 @@ namespace GameInterface.ShopMenu {
         [SerializeField, Tooltip("The text to show the price of this item"), MustBeAssigned]
         private TextMeshProUGUI contentPriceText;
 
+        internal string ItemName {
+            get; private set;
+        }
+
+        internal ShopItemState CurrentState { get; private set; }
+
+        private ShopItemsMenu shopMenuRef;
+
         private void Awake() {
-            holderImage = GetComponent<Image>();
+            if (holderImage == null) {
+                holderImage = GetComponent<Image>();
+            }
+        }
+
+        private void OnMouseDown() {
+            shopMenuRef.TriggerShopItemClicked(this);
+        }
+
+        internal void SetShopMenuReference(ShopItemsMenu reference) {
+            shopMenuRef = reference;
         }
 
         internal void SetShopItemContent(Sprite contentSprite, int contentPrice) {
             contentImage.sprite = contentSprite;
             contentPriceText.text = contentPrice.ToString();
+            ItemName = contentSprite.name;
         }
 
         internal void SetShopItemState(ShopItemState shopItemState) {
@@ -43,6 +65,7 @@ namespace GameInterface.ShopMenu {
                     holderImage.color = NORMAL_COLOR;
                     break;
             }
+            CurrentState = shopItemState;
         }
     }
 
