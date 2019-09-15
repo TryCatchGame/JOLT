@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using GameInterface.ShopMenu;
 
 using MyBox;
 using System.IO;
 using System.Text;
-
 namespace GameManager.CoreSkin {
-    public class CoreSkinDataManager : MonoBehaviour {
-        private static readonly string DATA_FILE_PATH = Path.Combine(Application.dataPath, "skinData.dat");
+    public class CoreSkinDataManager : Singleton<CoreSkinDataManager> {
+        private static string DATA_FILE_PATH;
 
         #region SkinDataCollection_STRUCT
         [System.Serializable]
@@ -19,13 +17,24 @@ namespace GameManager.CoreSkin {
         #endregion
 
         [Separator()]
+        [SerializeField, Tooltip("The sprite of the default skin core"), MustBeAssigned]
+        private Sprite defaultCoreSprite;
+
         [SerializeField, Tooltip("The sprite of all the skin cores"), MustBeAssigned]
         private Sprite[] skinCoreSprites;
 
+        [Separator()]
+        [SerializeField, Tooltip("The main menu scene to load"), MustBeAssigned]
+        private SceneReference mainMenuScene;
+
         private void Awake() {
+            DATA_FILE_PATH = Path.Combine(Application.dataPath, "skinData.dat");
             InitalizeDataFileIfNotExists();
 
             DontDestroyOnLoad(gameObject);
+            Debug.Log("CoreSkinDataManager Initalized!"); // DEBUG
+
+            SceneTransitionManager.Instance.TransitionToScene(mainMenuScene);
 
             #region Local_Function
             void InitalizeDataFileIfNotExists() {
@@ -42,7 +51,9 @@ namespace GameManager.CoreSkin {
             }
 
             SkinDataCollection CreateTemplateCollection() {
-                List<CoreSkinData> templateDatas = new List<CoreSkinData>();
+                List<CoreSkinData> templateDatas = new List<CoreSkinData> {
+                    new CoreSkinData(defaultCoreSprite.name, ShopItemState.IN_USE)
+                };
 
                 foreach (var sprite in skinCoreSprites) {
                     templateDatas.Add(new CoreSkinData(sprite.name, ShopItemState.NORMAL));
@@ -55,7 +66,7 @@ namespace GameManager.CoreSkin {
             #endregion
         }
 
-        internal void SaveCoreSkinData(CoreSkinData[] skinDatas) {
+        internal static void SaveCoreSkinData(CoreSkinData[] skinDatas) {
             SkinDataCollection collectionToSave = new SkinDataCollection {
                 skinDatas = skinDatas
             };
@@ -66,7 +77,7 @@ namespace GameManager.CoreSkin {
             File.WriteAllBytes(DATA_FILE_PATH, bytes);
         }
 
-        internal CoreSkinData[] LoadCoreSkinData() {
+        internal static CoreSkinData[] LoadCoreSkinData() {
             try {
                 byte[] bytes = File.ReadAllBytes(DATA_FILE_PATH);
                 string savedData = Encoding.ASCII.GetString(bytes);
@@ -77,7 +88,7 @@ namespace GameManager.CoreSkin {
             }
         }
 
-        internal CoreSkinData[] GetCoreSkinDataByCondition(System.Func<CoreSkinData, bool> condition) {
+        internal static CoreSkinData[] GetCoreSkinDataByCondition(System.Func<CoreSkinData, bool> condition) {
             CoreSkinData[] allCoreSkinData = LoadCoreSkinData();
             List<CoreSkinData> filteredData = new List<CoreSkinData>();
 
@@ -90,18 +101,40 @@ namespace GameManager.CoreSkin {
             return filteredData.ToArray();
         }
 
-        internal void OverrideCoreSkinData(CoreSkinData[] dataToOverride) {
+        internal static void OverrideCoreSkinData(CoreSkinData[] dataToOverride) {
             CoreSkinData[] currentCoreSkinData = LoadCoreSkinData();
 
             for (int i = 0; i < currentCoreSkinData.Length; ++i) {
                 foreach (var overridingData in dataToOverride) {
-                    if (currentCoreSkinData[i].SkinName == overridingData.SkinName) {
-                        currentCoreSkinData[i].SkinState = overridingData.SkinState;
+                    if (currentCoreSkinData[i].skinName == overridingData.skinName) {
+                        currentCoreSkinData[i].skinState = overridingData.skinState;
                     }
                 }
             }
 
             SaveCoreSkinData(currentCoreSkinData);
+        }
+
+        internal Sprite[] GetAllSprites() {
+            return skinCoreSprites.AddElement(defaultCoreSprite);
+        }
+
+        internal bool TryGetSpriteBySpriteName(string spriteName, out Sprite sprite) {
+            sprite = null;
+
+            if (spriteName == defaultCoreSprite.name) {
+                sprite = defaultCoreSprite;
+                return true;
+            }
+
+            foreach (var coreSprite in skinCoreSprites) {
+                if (coreSprite.name == spriteName) {
+                    sprite = coreSprite;
+                    break;
+                }
+            }
+
+            return sprite != null;
         }
     }
 }

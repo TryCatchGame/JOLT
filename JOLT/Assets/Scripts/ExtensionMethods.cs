@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class ExtensionMethods {
     /// <summary>
@@ -20,5 +18,19 @@ public static class ExtensionMethods {
         v.y = (sin * tx) + (cos * ty);
 
         return v;
+    }
+
+    public static T[] AddElement<T>(this T[] array, T newValue) {
+        int newLength = array.Length + 1;
+
+        T[] result = new T[newLength];
+
+        for (int i = 0; i < array.Length; ++i) {
+            result[i] = array[i];
+        }
+
+        result[newLength - 1] = newValue;
+
+        return result;
     }
 }
