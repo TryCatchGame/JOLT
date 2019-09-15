@@ -532,30 +532,39 @@ MonoBehaviour:
   - coreSprite: {fileID: -4818335002855901192, guid: f9fa03e132014d541b96805cf3898cb4,
       type: 3}
     corePrice: 100
+    defaultItemState: 0
   - coreSprite: {fileID: -2263221285294724237, guid: f9fa03e132014d541b96805cf3898cb4,
       type: 3}
     corePrice: 100
+    defaultItemState: 0
   - coreSprite: {fileID: -4112402234479336541, guid: f9fa03e132014d541b96805cf3898cb4,
       type: 3}
     corePrice: 100
+    defaultItemState: 0
   - coreSprite: {fileID: 9054449184491775046, guid: f9fa03e132014d541b96805cf3898cb4,
       type: 3}
     corePrice: 100
+    defaultItemState: 2
   - coreSprite: {fileID: -187961829575652166, guid: f9fa03e132014d541b96805cf3898cb4,
       type: 3}
     corePrice: 100
+    defaultItemState: 0
   - coreSprite: {fileID: -5110580602670709670, guid: f9fa03e132014d541b96805cf3898cb4,
       type: 3}
     corePrice: 100
+    defaultItemState: 0
   - coreSprite: {fileID: 177414984855234434, guid: f9fa03e132014d541b96805cf3898cb4,
       type: 3}
     corePrice: 100
+    defaultItemState: 0
   - coreSprite: {fileID: -1905990214805707433, guid: f9fa03e132014d541b96805cf3898cb4,
       type: 3}
     corePrice: 100
+    defaultItemState: 1
   - coreSprite: {fileID: -72620553716731325, guid: f9fa03e132014d541b96805cf3898cb4,
       type: 3}
     corePrice: 100
+    defaultItemState: 0
 --- !u!222 &590837421
 CanvasRenderer:
   m_ObjectHideFlags: 0

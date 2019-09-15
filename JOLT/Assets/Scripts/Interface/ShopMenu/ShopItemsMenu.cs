@@ -15,10 +15,14 @@ namespace GameInterface.ShopMenu {
             [SerializeField, Tooltip("The price of the core"), PositiveValueOnly]
             private int corePrice = 100;
 
+            [SerializeField, Tooltip("The default state of this shop item"), SearchableEnum]
+            private ShopItemState defaultItemState;
+
             public int CorePrice { get => corePrice; }
             public Sprite CoreSprite { get => coreSprite; }
             // TODO: Some other identifier for the core's skin?
             public string CoreName { get => coreSprite.name; }
+            public ShopItemState DefaultItemState { get => defaultItemState; }
         }
         #endregion
 
@@ -41,6 +45,8 @@ namespace GameInterface.ShopMenu {
                     newShopItem.transform.SetParent(transform, false);
 
                     newShopItem.SetShopItemContent(purchasableCore.CoreSprite, purchasableCore.CorePrice);
+                    // TODO: Save and load shop item state.
+                    newShopItem.SetShopItemState(purchasableCore.DefaultItemState);
                 }
             }
             #endregion
