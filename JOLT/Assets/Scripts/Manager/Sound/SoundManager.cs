@@ -26,15 +26,13 @@ namespace GameManager.Sound {
         private AudioFile[] audioFiles;
 
         private void Awake() {
+            AdjustSoundAudioSourceBySoundStatus();
             DontDestroyOnLoad(this);
         }
 
-        public void MuteAudioSource() {
-            soundAudioSource.volume = 0f;
-        }
-
-        public void UnmuteAudioSource() {
-            soundAudioSource.volume = 1f;
+        internal void ToggleSoundStatus() {
+            GlobalProperties.SoundOn_Local = !GlobalProperties.SoundOn_Local;
+            AdjustSoundAudioSourceBySoundStatus();
         }
 
         internal void PlaySoundBySoundType(SoundType soundType) {
@@ -47,6 +45,14 @@ namespace GameManager.Sound {
         }
 
         #region Utils
+        private void AdjustSoundAudioSourceBySoundStatus() {
+            if (GlobalProperties.SoundOn_Local) {
+                soundAudioSource.volume = 1f;
+            } else {
+                soundAudioSource.volume = 0f;
+            }
+        }
+
         private bool TryGetAudioClipBySoundType(SoundType soundType, out AudioClip result) {
             foreach (var audioFile in audioFiles) {
                 if (audioFile.SoundType == soundType) {

@@ -26,4 +26,16 @@ internal static class GlobalProperties {
             PlayerPrefs.SetString("UsingSkin", value);
         }
     }
+
+    /// <summary>
+    /// True if the sound has been toggled as on.
+    /// </summary>
+    internal static bool SoundOn_Local {
+        get {
+            return PlayerPrefs.GetInt("Sound", 1) == 1;
+        }
+        set {
+            PlayerPrefs.SetInt("Sound", value ? 1 : 0);
+        }
+    }
 }
