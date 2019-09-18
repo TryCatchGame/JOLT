@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using MyBox;
 
 using GameUtility;
+using GameManager.Sound;
 
 namespace GameManager {
 
@@ -143,6 +144,7 @@ namespace GameManager {
         }
 
         public void TriggerTimeSlow() {
+            SoundManager.Instance.PlaySoundBySoundType(SoundType.FREEZE_POWER);
             --TimeSlowUsableCount;
             ClampTimeSlowUsableCount();
             UpdateTimeSlowCounterDisplay();

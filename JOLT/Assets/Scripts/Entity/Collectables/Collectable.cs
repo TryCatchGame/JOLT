@@ -3,6 +3,7 @@
 using MyBox;
 
 using GameEntity.Player;
+using GameManager.Sound;
 
 namespace GameEntity.Collectables {
     [RequireTag("Collectables")]
@@ -57,8 +58,8 @@ namespace GameEntity.Collectables {
 			if(givesGem) {
 				AddGemToPlayer();
 			}
-
-			CreateCollectedEffect();
+            SoundManager.Instance.PlaySoundBySoundType(SoundType.GEM_COLLECT);
+            CreateCollectedEffect();
 			Destroy(gameObject);
 
 			#region Local_Function

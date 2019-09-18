@@ -5,7 +5,7 @@ using MyBox;
 using GameEntity.Player;
 using GameParticle.Enemy;
 using GameUtility;
-
+using GameManager.Sound;
 namespace GameEntity.Enemy {
 	[RequireTag("Enemy")]
 	[RequireLayer("Enemy")]
@@ -94,6 +94,7 @@ namespace GameEntity.Enemy {
 				if(borderCollisionChecker.IsCollidingWithScreenBorder()) {
 					IsMovingToPlayerTarget = true;
 					OnCollisionEvent(CollisionType.SCREEN_BORDER);
+                    SoundManager.Instance.PlaySoundBySoundType(SoundType.BLOB_BOUNCE_WALL);
 
 					CreateWallCollisionEffect();
 				}
@@ -111,8 +112,8 @@ namespace GameEntity.Enemy {
 		private void OnCollisionEnter2D(Collision2D collision) {
 			if(collision.gameObject.CompareTag(playerTag)) {
 				OnCollisionEvent(CollisionType.PLAYER);
-
-				TriggerCollisionDeath();
+                SoundManager.Instance.PlaySoundBySoundType(SoundType.BLOB_BOUNCE_PADDLE);
+                TriggerCollisionDeath();
 			}
 
 			#region Local_Function

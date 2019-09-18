@@ -5,6 +5,8 @@ using MyBox;
 using System.Collections.Generic;
 
 using GameManager;
+using GameManager.Sound;
+
 namespace GameInterface.ShopMenu {
     /// <summary>
     /// Attach it to the game-object that is responsible for having all the shop items as it's child elements.
@@ -56,6 +58,7 @@ namespace GameInterface.ShopMenu {
                 RequestItemPurchase();
             } else if (clickedItem.CurrentState == ShopItemState.OWNED) {
                 UseClickedItem();
+                SoundManager.Instance.PlaySoundBySoundType(SoundType.BUTTON_PRESS);
             }
 
             #region Local_Function
@@ -68,6 +71,7 @@ namespace GameInterface.ShopMenu {
 
                 // TODO: Ask for purchase confirmation?
                 CurrencyManager.Instance.ModifyGemValue(-CORE_PRICE);
+                SoundManager.Instance.PlaySoundBySoundType(SoundType.PURCHASE);
                 UseClickedItem();
             }
 
