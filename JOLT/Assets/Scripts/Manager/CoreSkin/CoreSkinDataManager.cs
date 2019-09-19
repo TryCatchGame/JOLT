@@ -23,10 +23,6 @@ namespace GameManager.CoreSkin {
         [SerializeField, Tooltip("The sprite of all the skin cores"), MustBeAssigned]
         private Sprite[] skinCoreSprites;
 
-        [Separator()]
-        [SerializeField, Tooltip("The main menu scene to load"), MustBeAssigned]
-        private SceneReference mainMenuScene;
-
         internal Sprite DefaultCoreSkin { get => defaultCoreSprite; }
 
         private void Awake() {
@@ -34,9 +30,7 @@ namespace GameManager.CoreSkin {
             InitalizeDataFileIfNotExists();
 
             DontDestroyOnLoad(gameObject);
-            Debug.Log("CoreSkinDataManager Initalized!"); // DEBUG
-
-            SceneTransitionManager.Instance.TransitionToScene(mainMenuScene);
+            Debug.Log("CoreSkinDataManager Initalized!"); // DEBUG!!!
 
             #region Local_Function
             void InitalizeDataFileIfNotExists() {
