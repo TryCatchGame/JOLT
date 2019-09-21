@@ -38,5 +38,33 @@ namespace GameManager {
 
             #endregion
         }
+
+        #region Utils
+        internal void ShowAchievementInterface() {
+            Social.ShowAchievementsUI();
+        }
+
+        internal void ShowLeaderboardInterface() {
+            Social.ShowLeaderboardUI();
+        }
+
+        internal void UpdateScoreAchievements(int scoreAmount) {
+            foreach (var achievementIDs in GPGSIds.score_achievement_IDs) {
+                playGamesPlatform.IncrementAchievement(achievementIDs, scoreAmount, null);
+            }
+        }
+
+        internal void IncrementCoreAchievements() {
+            foreach (var achievementIDs in GPGSIds.core_purchase_achievement_IDs) {
+                playGamesPlatform.IncrementAchievement(achievementIDs, 1, null);
+            }
+        }
+
+        internal void UpdateDiamondAchievements(int diamondAmount) {
+            foreach (var achievementIDs in GPGSIds.diamond_achievement_IDs) {
+                playGamesPlatform.IncrementAchievement(achievementIDs, diamondAmount, null);
+            }
+        }
+        #endregion
     }
 }

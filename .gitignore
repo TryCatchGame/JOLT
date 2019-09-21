@@ -37,3 +37,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Google Play Service Tokens
+JOLT/Assets/GPGSIds.cs
+JOLT/Assets/GPGSIds.cs.meta

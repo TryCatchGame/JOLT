@@ -62,6 +62,7 @@ namespace GameInterface.ShopMenu {
             }
 
             #region Local_Function
+
             void RequestItemPurchase() {
                 if (CurrencyManager.Instance.GemCount < CORE_PRICE) {
                     // TODO: Warn about insufficent gem count to purchase
@@ -73,6 +74,11 @@ namespace GameInterface.ShopMenu {
                 CurrencyManager.Instance.ModifyGemValue(-CORE_PRICE);
                 SoundManager.Instance.PlaySoundBySoundType(SoundType.PURCHASE);
                 UseClickedItem();
+                IncrementPurchaseAchievement();
+            }
+
+            void IncrementPurchaseAchievement() {
+                GooglePlayServiceManager.Instance.IncrementCoreAchievements();
             }
 
             void UseClickedItem() {

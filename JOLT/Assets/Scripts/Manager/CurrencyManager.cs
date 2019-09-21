@@ -23,8 +23,15 @@ namespace GameManager {
             currencyMenu.UpdateGemCountText(GemCount);
 
             GlobalProperties.TotalGemCount_Local = GemCount;
+            UpdateAchievementIfModificationIsPositive();
 
             #region Local_Function
+
+            void UpdateAchievementIfModificationIsPositive() {
+                if (modifyAmount > 0) {
+                    GooglePlayServiceManager.Instance.UpdateDiamondAchievements(modifyAmount);
+                }
+            }
 
             void ClampGemValue() {
                 if (GemCount < 0) {
