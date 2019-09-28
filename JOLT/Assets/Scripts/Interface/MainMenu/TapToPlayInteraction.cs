@@ -77,12 +77,21 @@ namespace GameInterface.MainMenu {
                 if (isEditor) {
                     return Input.GetKeyDown(KeyCode.Mouse0);
                 } else {
-                    return Input.touchCount > 0;
+                    if (Input.touchCount > 0) {
+                        if (Input.GetTouch(0).phase == TouchPhase.Began) {
+                            return true;
+                        }
+                    }
+                    return false;
                 }
             }
 
             bool PointerOverAnyInterface() {
-                return currentEventSystem.IsPointerOverGameObject();
+                if (isEditor) {
+                    return currentEventSystem.IsPointerOverGameObject();
+                } else {
+                    return currentEventSystem.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+                }
             }
             #endregion
         }

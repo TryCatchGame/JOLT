@@ -1615,6 +1615,7 @@ GameObject:
   - component: {fileID: 1268999971}
   - component: {fileID: 1268999970}
   - component: {fileID: 1268999969}
+  - component: {fileID: 1268999972}
   m_Layer: 5
   m_Name: AchivementButton
   m_TagString: Untagged
@@ -1726,6 +1727,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268999967}
   m_CullTransparentMesh: 0
+--- !u!114 &1268999972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268999967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fed5a3dd9e6a3b4a887e3d117280fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1268999969}
 --- !u!1 &1325641008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,6 +2296,7 @@ GameObject:
   - component: {fileID: 1622655690}
   - component: {fileID: 1622655689}
   - component: {fileID: 1622655688}
+  - component: {fileID: 1622655691}
   m_Layer: 5
   m_Name: LeaderboardButton
   m_TagString: Untagged
@@ -2393,6 +2408,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622655686}
   m_CullTransparentMesh: 0
+--- !u!114 &1622655691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622655686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e643b1fda5bd9f348829e3546ef9f4c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1622655688}
 --- !u!1 &1663503780
 GameObject:
   m_ObjectHideFlags: 0

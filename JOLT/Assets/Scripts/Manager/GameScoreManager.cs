@@ -75,6 +75,8 @@ namespace GameManager {
             void SaveScoreOnGameOver() {
                 GameOverManager.Instance.onGameOverEvent += SaveCurrentHighScore;
                 GameOverManager.Instance.onGameOverEvent += UpdateCurrentScoreCountToAchievements;
+
+                GooglePlayServiceManager.Instance.UpdateLeaderboardWithScore(CurrentScoreCount);
             }
 
             void HideIngameScoreDisplayOnGameOver() {

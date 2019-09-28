@@ -26,11 +26,10 @@ namespace GameManager.CoreSkin {
         internal Sprite DefaultCoreSkin { get => defaultCoreSprite; }
 
         private void Awake() {
-            DATA_FILE_PATH = Path.Combine(Application.dataPath, "skinData.dat");
+            DATA_FILE_PATH = Path.Combine(Application.persistentDataPath, "skinData.dat");
             InitalizeDataFileIfNotExists();
 
             DontDestroyOnLoad(gameObject);
-            Debug.Log("CoreSkinDataManager Initalized!"); // DEBUG!!!
 
             #region Local_Function
             void InitalizeDataFileIfNotExists() {
