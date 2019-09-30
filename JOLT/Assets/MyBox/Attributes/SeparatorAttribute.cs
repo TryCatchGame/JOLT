@@ -17,7 +17,7 @@ namespace MyBox
 			Title = "";
 		}
 
-		public SeparatorAttribute(string title, bool withOffset = true)
+		public SeparatorAttribute(string title, bool withOffset = false)
 		{
 			Title = title;
 			WithOffset = withOffset;
