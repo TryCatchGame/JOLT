@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 using MyBox;
 
 using GameManager;
+using System.Collections.Generic;
+
 namespace GameInterface.MainMenu {
     /// <summary>
     /// Handles the 'tap anywhere to play' interaction for the player.
@@ -90,8 +92,17 @@ namespace GameInterface.MainMenu {
                 if (isEditor) {
                     return currentEventSystem.IsPointerOverGameObject();
                 } else {
-                    return currentEventSystem.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+                    return IsTouchPointerOverUIObject();
                 }
+            }
+
+            bool IsTouchPointerOverUIObject() {
+                PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current) {
+                    position = new Vector2(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y)
+                };
+                List<RaycastResult> results = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+                return results.Count > 0;
             }
             #endregion
         }
