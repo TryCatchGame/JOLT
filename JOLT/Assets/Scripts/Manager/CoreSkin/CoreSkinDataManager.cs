@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 namespace GameManager.CoreSkin {
     public class CoreSkinDataManager : Singleton<CoreSkinDataManager> {
-        private static string DATA_FILE_PATH;
+        internal static string DATA_FILE_PATH { get; private set; }
 
         #region SkinDataCollection_STRUCT
         [System.Serializable]
