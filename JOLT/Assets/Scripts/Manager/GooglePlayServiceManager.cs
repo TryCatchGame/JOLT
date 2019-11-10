@@ -3,6 +3,7 @@ using GooglePlayGames.BasicApi;
 using UnityEngine;
 
 using MyBox;
+using GooglePlayGames.BasicApi.SavedGame;
 
 namespace GameManager {
     public class GooglePlayServiceManager : Singleton<GooglePlayServiceManager> {
@@ -59,10 +60,6 @@ namespace GameManager {
             foreach (var achievementIDs in GPGSIds.score_achievement_IDs) {
                 playGamesPlatform.IncrementAchievement(achievementIDs, scoreAmount, null);
             }
-        }
-
-        internal void SaveCurrentData() {
-            //TODO
         }
 
         internal void IncrementCoreAchievements() {

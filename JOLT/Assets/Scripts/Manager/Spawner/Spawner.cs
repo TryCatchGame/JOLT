@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 using GameUtility;
 
@@ -27,6 +25,9 @@ namespace GameManager {
 
         #endregion
 
+        [SerializeField, Tooltip("True if it can start spawn on start")]
+        private bool startSpawningOnStart;
+
         [SerializeField, Tooltip("The random interval between each object spawns"), MustBeAssigned]
         private SpawnInterval spawnInterval;
 
@@ -40,10 +41,14 @@ namespace GameManager {
 
         private Vector2 screenSize;
 
+        internal bool IsSpawning { get; set; }
+
         private void Awake() {
             spawnTimer = new Timer(spawnInterval.GenerateWaitingTime(), SpawnObjectAndResetTimerDuration);
 
             InitalizeScreenSize();
+
+            IsSpawning = startSpawningOnStart;
 
             #region Local_Function
 
@@ -56,7 +61,11 @@ namespace GameManager {
             #endregion
         }
 
-        void Update() {
+        private void Update() {
+            if (!IsSpawning) {
+                return;
+            }
+
             spawnTimer.Update(Time.deltaTime);
         }
 
