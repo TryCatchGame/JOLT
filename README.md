@@ -2,8 +2,7 @@
 
 An endless survival casual game made for android.
 
-**Note:** This game is currently under rework as the previous version was made using an extremely old unity version, and had a lot of bugs in it.<br>
-It will now be made with a newer Unity Version (2019.2.xfx) with a better game design.
+Made in Unity Engine, Version 2019.2.xfx.
 
 ## Attributions
 
