@@ -17,10 +17,12 @@ namespace GameEntity.Player {
                 coreRenderer = GetComponent<SpriteRenderer>();
             }
 
+#if UNITY_EDITOR
             // DEBUG!!!
             if (CoreSkinDataManager.Instance != null) {
                 LoadCurrentlyUsedSkin();
             }
+#endif
 
             // This component is not needed anymore.
             Destroy(this);
